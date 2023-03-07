@@ -9,6 +9,6 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
 
-
-  has_many :user_medications, :orders
+  has_many :user_medications
+  has_many :orders
 end
