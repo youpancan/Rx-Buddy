@@ -1,5 +1,6 @@
-<h1>Here is your order</h1>
+<h1>Your Order Status</h1>
 
-<% @order.user_medications.each do |user_medication| %>
-  <%= uder_medication.medication.name %>
+<% @order.refills.each do |refill| %>
+  <%= refill.status %>
+  <%= refill.user_medication.medication.name %>
 <% end %>
