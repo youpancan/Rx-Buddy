@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_170745) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_192203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_170745) do
     t.string "strength"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_medication_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_medication_id"], name: "index_orders_on_user_medication_id"
+  end
+
+  create_table "refills", force: :cascade do |t|
+    t.string "urgency"
+    t.string "status"
+    t.date "pick_up_date"
+    t.text "notes"
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_refills_on_order_id"
   end
 
   create_table "user_allergies", force: :cascade do |t|
@@ -63,6 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_170745) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "user_medications"
+  add_foreign_key "refills", "orders"
   add_foreign_key "user_allergies", "allergies"
   add_foreign_key "user_allergies", "users"
   add_foreign_key "user_medications", "medications"
