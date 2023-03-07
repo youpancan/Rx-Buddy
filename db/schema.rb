@@ -38,6 +38,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_170745) do
     t.index ["user_id"], name: "index_user_allergies_on_user_id"
   end
 
+  create_table "user_medications", force: :cascade do |t|
+    t.bigint "medication_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "number_refills"
+    t.string "prescriber"
+    t.date "refill_due_date"
+    t.boolean "refillable"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medication_id"], name: "index_user_medications_on_medication_id"
+    t.index ["user_id"], name: "index_user_medications_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,4 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_170745) do
 
   add_foreign_key "user_allergies", "allergies"
   add_foreign_key "user_allergies", "users"
+  add_foreign_key "user_medications", "medications"
+  add_foreign_key "user_medications", "users"
 end
