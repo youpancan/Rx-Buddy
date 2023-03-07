@@ -10,5 +10,5 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
 
 
-  has_many :user_medications
+  has_many :user_medications, :orders
 end
