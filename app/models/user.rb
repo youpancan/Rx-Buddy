@@ -8,4 +8,7 @@ class User < ApplicationRecord
   validates :birth_date, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true
+
+
+  has_many :user_medications
 end

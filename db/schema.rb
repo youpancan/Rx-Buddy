@@ -28,6 +28,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_195342) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_medication_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_medication_id"], name: "index_orders_on_user_medication_id"
+  end
+
+  create_table "refills", force: :cascade do |t|
+    t.string "urgency"
+    t.string "status"
+    t.date "pick_up_date"
+    t.text "notes"
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_refills_on_order_id"
+  end
+
   create_table "user_allergies", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "allergy_id", null: false
@@ -36,6 +54,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_195342) do
     t.datetime "updated_at", null: false
     t.index ["allergy_id"], name: "index_user_allergies_on_allergy_id"
     t.index ["user_id"], name: "index_user_allergies_on_user_id"
+  end
+
+  create_table "user_medications", force: :cascade do |t|
+    t.bigint "medication_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "number_refills"
+    t.string "prescriber"
+    t.date "refill_due_date"
+    t.boolean "refillable"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medication_id"], name: "index_user_medications_on_medication_id"
+    t.index ["user_id"], name: "index_user_medications_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,6 +87,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_195342) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "user_medications"
+  add_foreign_key "refills", "orders"
   add_foreign_key "user_allergies", "allergies"
   add_foreign_key "user_allergies", "users"
+  add_foreign_key "user_medications", "medications"
+  add_foreign_key "user_medications", "users"
 end
