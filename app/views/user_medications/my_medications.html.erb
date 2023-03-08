@@ -1,6 +1,8 @@
 
 <ul>
   <% @user_medications.each do |user_medication| %>
-    <li><%= user_medication.medication.name %></li>
+    <li>
+      <%= user_medication.medication.name %>
+    </li>
   <% end %>
 </ul>
