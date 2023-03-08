@@ -3,6 +3,5 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get '/dashboard', to: 'profiles#dashboard'
   get '/my_medications', to: 'user_medications#my_medications'
-  get '/dashboard/edit', to: 'profiles#edit'
-  resources :order, only: %i[new create show]
+  resources :orders, only: %i[new create show index]
 end
