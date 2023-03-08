@@ -14,8 +14,11 @@
                 input_html: { autocomplete: "last_name" }%>
     <%= f.input :birthdate,
                 as: :date,
+                start_year: Date.today.year - 90,
+                end_year: Date.today.year - 12,
                 required: true,
                 input_html: { autocomplete: "birthdate" }%>
+
     <%= f.input :email,
                 required: true,
                 input_html: { autocomplete: "email" }%>
