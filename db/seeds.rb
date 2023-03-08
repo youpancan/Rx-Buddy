@@ -42,11 +42,11 @@ order_two = Order.create!(user: user_two)
 order_three = Order.create!(user: user_three)
 
 puts "creating refills"
-refill_one = Refill.create!(urgency: 'medium', status: 'in process', user_medication: user_medication_one,
+Refill.create!(urgency: 'medium', status: 'in process', user_medication: user_medication_one,
                             order: order_one, notes: 'no comment', pick_up_date: Date.new(2023, 3, 7))
-refill_two = Refill.create!(urgency: 'urgent', status: 'received', user_medication: user_medication_two,
+Refill.create!(urgency: 'urgent', status: 'received', user_medication: user_medication_two,
                             order: order_two, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
-refill_three = Refill.create!(urgency: 'medium', status: 'ready', user_medication: user_medication_three,
+Refill.create!(urgency: 'medium', status: 'ready', user_medication: user_medication_three,
                               order: order_three, notes: 'no comment', pick_up_date: Date.new(2023, 3, 2))
 
 # last refill (using current date - pick up date), due date for refill, remining refills, pharamacy location
