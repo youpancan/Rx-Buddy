@@ -39,3 +39,6 @@ puts "creating refills"
 refill_one = Refill.create!(status: 'in process', user_medication: user_medication_one, order: order_one)
 refill_two = Refill.create!(status: 'in process', user_medication: user_medication_two, order: order_two)
 refill_three = Refill.create!(status: 'in process', user_medication: user_medication_three, order: order_three)
+
+# last refill, due date for refill, remining refills, pharamacy location
+# enums for refill status
