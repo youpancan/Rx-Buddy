@@ -1,11 +1,11 @@
 puts "cleaning up the database"
+Refill.destroy_all
+Order.destroy_all
+UserMedication.destroy_all
 UserAllergy.destroy_all
 Allergy.destroy_all
-UserMedication.destroy_all
-Order.destroy_all
-Refill.destroy_all
-User.destroy_all
 Medication.destroy_all
+User.destroy_all
 
 puts "creating users"
 user_one = User.create!(first_name: 'Ayat', last_name: 'Amin', email: 'a@a.a', password: '123456')
