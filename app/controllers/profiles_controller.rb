@@ -1,5 +1,9 @@
 class ProfilesController < ApplicationController
 
+  def edit
+    @user = current_user
+  end
+
   def dashboard
     @active_meds = []
     @user = current_user
