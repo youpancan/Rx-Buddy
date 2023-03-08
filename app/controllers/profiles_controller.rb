@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   def edit
     @user = User.new
   end
+
   def dashboard
     @active_meds = []
     @user = current_user
