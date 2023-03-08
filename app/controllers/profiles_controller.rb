@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   def edit
-    @user = User.new
+    @user = current_user
   end
 
   def dashboard
