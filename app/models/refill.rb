@@ -1,5 +1,5 @@
 class Refill < ApplicationRecord
-  belongs_to :order
+  belongs_to :order, optional: true
   belongs_to :user_medication
   # declare enum and change status to integer
   # change order_id in refill shcema
