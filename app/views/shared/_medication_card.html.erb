@@ -1,0 +1,10 @@
+<div class="medication_card">
+
+<%= @active_meds.each do |active_med| %>
+<p>active_medication name: <%= active_med.medication.name %></p>
+<p>prescriber: <%= active_med.prescriber %></p>
+<p>number_refills: <%= active_med.number_refills %></p>
+<p>Due Date: <%= active_med.refill_due_date%></p>
+<p>Refillable: <%= active_med.refillable %>
+<% end %>
+</div>
