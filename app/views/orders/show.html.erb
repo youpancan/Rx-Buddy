@@ -1,6 +1,9 @@
-<h1>Your Order Status</h1>
-
-<% @order.refills.each do |refill| %>
-  <%= refill.status %>
-  <%= refill.user_medication.medication.name %>
-<% end %>
+<div class='container mt-5'>
+  <h1>Your Order Status</h1>
+  <div class='border'>
+    <% @order.refills.each do |refill| %>
+      <div><%= refill.user_medication.medication.name %></div>
+      <div><%= refill.status %></div>
+    <% end %>
+  </div>
+</div>
