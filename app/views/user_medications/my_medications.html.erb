@@ -1,8 +1,10 @@
 
-<ul>
+<div>
   <% @user_medications.each do |user_medication| %>
-    <li>
-      <%= user_medication.medication.name %>
-    </li>
+    <div><%= user_medication.medication.name %></div>
+    <div><%= user_medication.prescriber%></div>
+    <div><%= user_medication.number_refills %></div>
+    <div>Refill Due Date: <%= user_medication.refill_due_date %></div>
+    <div><%= (Date.today - user_medication.refills.last.pick_up_date).to_i %> days since last refill</div>
   <% end %>
-</ul>
+</div>
