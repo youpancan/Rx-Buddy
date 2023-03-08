@@ -1,9 +1,13 @@
 class RefillsController < ApplicationController
   def create
-    @refill = Refill.new(refill_params)
+    @refill = Refill.new(params[:user_refill_id])
     @user_medication = UserMedication.find(params[:user_medication_id])
     @refill.user_medication = @user_medication
-    @refill.save
+    raise
+    if @refill.save
+      redirect_to my_medications_path
+    else
+    end
   end
 
   def update

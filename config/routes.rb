@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/my_medications', to: 'user_medications#my_medications'
   resources :orders, only: %i[new create show index]
   resources :user_medications, only: [] do
-    resources :refills, only: %i[new create update]
+    resources :refills, only: %i[create update]
   end
 end

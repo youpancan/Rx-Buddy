@@ -1,14 +1,15 @@
 <div class='container mt-5'>
   <h1>Prescription History</h1>
-  <div class='border'>
-    <% @user_medications.each do |user_medication| %>
+  <% @user_medications.each do |user_medication| %>
+    <div class='border'>
       <div><%= user_medication.medication.name %></div>
       <div class='border'>
         <div>Prescribed by <strong><%= user_medication.prescriber%></strong></div>
         <div>You have <strong><%= pluralize user_medication.number_refills.size, 'refill' %></strong> left</div>
         <div>Refill Due Date: <%= user_medication.refill_due_date %></div>
         <div><strong><%= pluralize (Date.today - user_medication.refills.last.pick_up_date).to_i, 'day' %></strong> since last refill</div>
+        <div> <%= button_to "refill", user_medication_refills_path(user_medication) %> </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
