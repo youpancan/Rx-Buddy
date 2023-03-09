@@ -1,10 +1,10 @@
 <div class='container mt-5'>
   <h1>All orders</h1>
-  <div class='border'>
     <% @orders.each do |order| %>
-      <%= link_to order_path(order) do%>
-        <%= order.id %>
-      <% end %>
+      <div class='border'>
+        <%= link_to order_path(order) do%>
+          <%= order.id %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
 </div>
