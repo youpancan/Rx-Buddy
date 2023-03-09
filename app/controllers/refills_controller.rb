@@ -17,7 +17,7 @@ class RefillsController < ApplicationController
   end
 
   def review
-    @refills = current_user.non_confirmed_refills
+    @refills = current_user.no_order_refills
   end
 
   private
