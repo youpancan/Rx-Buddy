@@ -4,6 +4,17 @@ class ProfilesController < ApplicationController
     @user = current_user
   end
 
+  def update
+    @user = current_user
+    @user.update(user_params)
+
+    if @user.save
+      redirect_to dashboard_path
+    else
+      render :edit, status: unprocessable_entity
+    end
+  end
+
   def dashboard
     @active_meds = []
     @user = current_user
@@ -12,5 +23,12 @@ class ProfilesController < ApplicationController
       @active_meds.push(medication) if medication.number_refills.positive?
     end
 
+    end
+
+
+    private
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email, :birthday, :phone_number, :address, )
     end
 end
