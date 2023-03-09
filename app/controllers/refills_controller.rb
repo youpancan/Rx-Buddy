@@ -3,10 +3,10 @@ class RefillsController < ApplicationController
     @refill = Refill.new(params[:user_refill_id])
     @user_medication = UserMedication.find(params[:user_medication_id])
     @refill.user_medication = @user_medication
-    raise
     if @refill.save
       redirect_to my_medications_path
     else
+      render 'user_medications/my_medications', status: :unprocessable_entity
     end
   end
 
