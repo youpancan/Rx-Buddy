@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get '/dashboard/edit', to: 'profiles#edit'
   patch '/dashboard', to: 'profiles#update', as: :user
   get '/my_medications', to: 'user_medications#my_medications'
+  get '/notifications', to: 'notifications#show'
   resources :orders, only: %i[new create show index]
 end
