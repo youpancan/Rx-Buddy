@@ -1,23 +1,32 @@
-<% @active_meds.each do |active_med| %>
-    <div class='border'>
-      <div><%= active_med.medication.name %></div>
-      <div class='border'>
-        <div>Prescribed by <strong><%= active_med.prescriber%></strong></div>
-        <div>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</div>
-        <div>Refill Due Date: <%= active_med.refill_due_date %></div>
-        <div><strong><%= pluralize (Date.today - active_med.refills.first.pick_up_date).to_i, 'day' %></strong> since last refill</div>
-        <%# check how to calculate the number of refills left %>
-       <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Refill
+<div class='container'>
+  <div class="accordion" id="accordionExample">
+    <% active_meds.each_with_index do |active_med, index| %>
+      <div class="accordion-item mb-3 border">
+        <h2 class="accordion-header" id="heading<%= index %>">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-controls="collapse<%= index %>">
+            <img src="assets/pill.png" alt="pill" class='pill-icon'>
+            <%= active_med.medication.name %>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'extreme urgency'), class: "dropdown-item" %></li>
-            <li><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium urgency'), class: "dropdown-item" %></li>
-            <li><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'mild urgency'), class: "dropdown-item" %></li>
-          </ul>
+        </h2>
+        <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
+            <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
+            <p>Refill Due Date: <%= active_med.refill_due_date %></p>
+            <p><strong><%= pluralize (Date.today - active_med.refills.first.pick_up_date).to_i, 'day' %></strong> since last refill</p>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Refill
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'extreme urgency'), class: "dropdown-item" %></li>
+                <li><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium urgency'), class: "dropdown-item" %></li>
+                <li><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'mild urgency'), class: "dropdown-item" %></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <%# <div> <%= button_to "refill", user_medication_refills_path(user_medication) %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>
