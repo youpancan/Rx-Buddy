@@ -20,9 +20,9 @@
 
     <nav class="main-navigation">
       <ul>
-        <li> <%= link_to "Dashboard", dashboard_path , class: "nav-link" %></li>
+        <li> <%= link_to "Personal Information", dashboard_show_path, class: "nav-link" %></li>
         <%# <li> <%= link_to "Personal Information", dashboard_path , class: "nav-link" %>
-        <li> <%= link_to "Prescription History", my_medications_path , class: "nav-link" %></li>
+        <li> <%= link_to "Prescription History", my_medications_path, class: "nav-link" %></li>
         <li> <%= link_to "My Orders", orders_path , class: "nav-link" %></li>
       </ul>
     </nav>
@@ -31,7 +31,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-   <h2 class="m-0">RX Buddy</h2>
+   <h2 class="m-0"><%= link_to 'RX Buddy', dashboard_path, class:'text-decoration-none text-black'%></h2>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
