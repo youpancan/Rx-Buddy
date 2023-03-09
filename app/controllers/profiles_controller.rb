@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+  def show
+    @user = current_user
+  end
 
   def edit
     @user = current_user
@@ -9,7 +12,7 @@ class ProfilesController < ApplicationController
     @user.update(user_params)
 
     if @user.save
-      redirect_to dashboard_path
+      redirect_to dashboard_show_path
     else
       render :edit, status: unprocessable_entity
     end
@@ -21,6 +24,7 @@ class ProfilesController < ApplicationController
     current_user.user_medications.each do |medication|
       @active_meds.push(medication) if medication.number_refills.positive?
     end
+  end
 
     @marker = {
         lat: current_user.latitude,

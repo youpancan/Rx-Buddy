@@ -1,11 +1,14 @@
 <div class='container mt-5'>
   <h1>Dashboard</h1>
-<h3>username: <%= current_user.first_name %></h3>
-<h3>userlast_name: <%= current_user.last_name %></h3>
-<%= render "shared/medication_card" %>
-<%#= @current_pharmacy_location %>
+<h3><%= @user.first_name %> <%= @user.last_name %></h3>
 
-<div style="width: 100%; height: 600px;"
+<%= render "shared/medication_card", active_meds: @active_meds%>
+
+  <% unless current_user.no_order_refills == [] %>
+  <%= link_to "Review", review_path %>
+  <% end %>
+
+  <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-marker-value="<%= @marker.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
