@@ -15,7 +15,7 @@
             <p>Prescribed by <strong><%= user_medication.prescriber%></strong></p>
             <p>You have <strong><%= pluralize user_medication.number_refills.size, 'refill' %></strong> left</p>
             <p>Refill Due Date: <%= user_medication.refill_due_date %></p>
-            <p><strong><%= pluralize (Date.today - user_medication.refills.first.pick_up_date).to_i, 'day' %></strong> since last refill</p>
+            <p><strong><%= pluralize (user_medication.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
           </div>
         </div>
       </div>
