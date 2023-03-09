@@ -1,13 +1,14 @@
-<div class='container mt-5'>
+<div class='container mt-5 col-8'>
   <h1> Personal Information </h1>
 
-  <ul>
-    <li><%= @user.first_name %></li>
-    <li><%= @user.last_name %></li>
-    <li><%= @user.email %></li>
-    <li><%= @user.birthdate %></li>
-    <li><%= @user.address %></li>
-  </ul>
+  <div>
+    <div class='pb-3 mb-4 h5 border-bottom'><%= @user.first_name %></div>
+    <div class='pb-3 mb-4 h5 border-bottom'><%= @user.last_name %></div>
+    <div class='pb-3 mb-4 h5 border-bottom'><%= @user.email %></div>
+    <div class='pb-3 mb-4 h5 border-bottom'><%= @user.birthdate %></div>
+    <div class='pb-3 mb-4 h5 border-bottom'><%= @user.phone_number %></div>
+    <div class='pb-3 mb-4 h5 border-bottom'><%= @user.address %></div>
+  </div>
 
   <%= link_to 'Edit Info', dashboard_edit_path, class: 'btn btn-primary' %>
 </div>
