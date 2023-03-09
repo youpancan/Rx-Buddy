@@ -12,4 +12,7 @@ class User < ApplicationRecord
   has_many :user_medications
   has_many :orders
   has_many :user_allergies
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
