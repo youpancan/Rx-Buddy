@@ -9,7 +9,7 @@
         <div>Refill Due Date: <%= user_medication.refill_due_date %></div>
         <div><strong><%= pluralize (Date.today - user_medication.refills.first.pick_up_date).to_i, 'day' %></strong> since last refill</div>
         <%# check how to calculate the number of refills left %>
-        <div> <%= button_to "refill", user_medication_refills_path(user_medication) %> </div>
+        <%# <div> <%= button_to "refill", user_medication_refills_path(user_medication) %>
       </div>
     </div>
   <% end %>
