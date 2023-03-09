@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_many :notifications, through: :user_medications
   has_many :orders
   has_many :user_allergies
+  has_many :refills, through: :user_medications
+  has_many :no_order_refills, through: :user_medications, source: :no_order_refills
 end
