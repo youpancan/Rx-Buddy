@@ -24,7 +24,6 @@ class ProfilesController < ApplicationController
     current_user.user_medications.each do |medication|
       @active_meds.push(medication) if medication.number_refills.positive?
     end
-  end
 
     @marker = {
         lat: current_user.latitude,
