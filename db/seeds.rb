@@ -7,6 +7,14 @@ Allergy.destroy_all
 Medication.destroy_all
 User.destroy_all
 
+puts "creating users"
+user_one = User.create!(first_name: 'Ayat', last_name: 'Amin', email: 'a@a.a', password: '123456', birthdate: Date.new(1995, 10, 9),
+                        address: '4007 rue Saint-Denis, Montreal', pharmacy_location: '54 rue Saint-Viateur, Montreal')
+user_two = User.create(first_name: 'Maggie', last_name: 'Hum', email: 'a@b.a', password: '123456', birthdate: Date.new(1998, 9, 6),
+                       address: '65 st', pharmacy_location: '54 rue Saint-Viateur, Montreal')
+user_three = User.create(first_name: 'You', last_name: 'Pan', email: 'a@c.a', password: '123456', birthdate: Date.new(2000, 4, 9),
+                         address: '44 st', pharmacy_location: '54 rue Saint-Viateur, Montreal')
+
 puts "creating allergies"
 allergy_types = ['penicillin', 'sulfa', 'codeine', 'lactose', 'ibuprofen',
                  'latex', 'ASA', 'egg', 'abacavir', 'ramipril']
