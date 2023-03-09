@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   # belongs_to :user_medication
   has_many :refills
-  belongs_to :user_medication
+  has_many :user_medications, through: :refills
   belongs_to :user
 end
