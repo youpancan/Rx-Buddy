@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #006D77;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,7 +14,7 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:900&display=swap');
 
 :root {
-  --color-primary: #002626;
+  --color-primary: #006D77;
   --color-secondary: #F0F7EE;
   --duration: 1s;
   --nav-duration: calc(var(--duration) / 4);
@@ -75,7 +75,7 @@ h1 {
 }
 
 .icon--menu {
-  stroke: var(--color-primary);
+  stroke: white;
 }
 
 .icon--close {
