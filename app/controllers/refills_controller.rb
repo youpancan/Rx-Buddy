@@ -4,9 +4,10 @@ class RefillsController < ApplicationController
     @user_medication = UserMedication.find(params[:user_medication_id])
     @refill.user_medication = @user_medication
     if @refill.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render 'user_medications/my_medications', status: :unprocessable_entity
+      # check
     end
   end
 

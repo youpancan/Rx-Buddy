@@ -4,4 +4,7 @@
 
 <%= render "shared/medication_card", active_meds: @active_meds%>
 
+  <% unless current_user.no_order_refills == [] %>
+  <%= link_to "Review", review_path %>
+  <% end %>
 </div>
