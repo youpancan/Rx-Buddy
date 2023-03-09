@@ -1,9 +1,23 @@
-<div class="medication_card">
-  <%= @active_meds.each do |active_med| %>
-    <p>active_medication name: <%= active_med.medication.name %></p>
-    <p>prescriber: <%= active_med.prescriber %></p>
-    <p>number_refills: <%= active_med.number_refills %></p>
-    <p>Due Date: <%= active_med.refill_due_date%></p>
-    <p>Refillable: <%= active_med.refillable %>
+<% @active_meds.each do |active_med| %>
+    <div class='border'>
+      <div><%= active_med.medication.name %></div>
+      <div class='border'>
+        <div>Prescribed by <strong><%= active_med.prescriber%></strong></div>
+        <div>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</div>
+        <div>Refill Due Date: <%= active_med.refill_due_date %></div>
+        <div><strong><%= pluralize (Date.today - active_med.refills.first.pick_up_date).to_i, 'day' %></strong> since last refill</div>
+        <%# check how to calculate the number of refills left %>
+       <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Refill
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'extreme urgency'), class: "dropdown-item" %></li>
+            <li><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium urgency'), class: "dropdown-item" %></li>
+            <li><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'mild urgency'), class: "dropdown-item" %></li>
+          </ul>
+        </div>
+        <%# <div> <%= button_to "refill", user_medication_refills_path(user_medication) %>
+      </div>
+    </div>
   <% end %>
-</div>
