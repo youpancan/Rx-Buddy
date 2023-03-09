@@ -32,11 +32,11 @@ yaz = Medication.create!(name: "Yaz", description: "Birth-Control", strength: '2
 
 puts "creating users"
 user_one = User.create!(first_name: 'Ayat', last_name: 'Amin', email: 'a@a.a', password: '123456', birthdate: Date.new(1995, 10, 9),
-                        address: '25 st', pharmacy_location: '63 queen st')
+                        address: '25 st', phone_number: '613-444-5555', pharmacy_location: '63 queen st')
 user_two = User.create(first_name: 'Maggie', last_name: 'Hum', email: 'a@b.a', password: '123456', birthdate: Date.new(1998, 9, 6),
-                       address: '65 st', pharmacy_location: '63 king st')
+                       address: '65 st', phone_number: '613-444-5555', pharmacy_location: '63 king st')
 user_three = User.create(first_name: 'You', last_name: 'Pan', email: 'a@c.a', password: '123456', birthdate: Date.new(2000, 4, 9),
-                         address: '44 st', pharmacy_location: '63 prince st')
+                         address: '44 st', phone_number: '613-444-5555', pharmacy_location: '63 prince st')
 
 puts "creating user medications"
 user_alesse = UserMedication.create!(medication: alesse, user: user_two, number_refills: 3,
@@ -81,9 +81,9 @@ refill_three = Refill.create!(urgency: 'medium', status: 'ready', user_medicatio
 # MAIN USER FOR DEMO SCENARIO -AYATS SEED DONT TOUCH!!!!!!
 
 # create main user
-sarah = User.create!(first_name: 'Sarah', last_name: 'Johnson', email: 's@s.s', password: '123456',
+sarah = User.create!(first_name: 'Sarah', last_name: 'Johnson', email: 'sarah.Johnson@gmail.com', password: '123456',
                      birthdate: Date.new(1996, 10, 9),
-                     address: '5333 Casgrain, Montreal', pharmacy_location: '63 queen st, Montreal')
+                     address: '5333 Casgrain, Montreal', phone_number: '613-444-5555', pharmacy_location: '63 queen st, Montreal')
 
 # creating user medications
 sarah_lexapro = UserMedication.create!(medication: lexapro, user: sarah, number_refills: 4,
