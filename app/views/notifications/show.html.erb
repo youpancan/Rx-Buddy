@@ -1,0 +1,7 @@
+<h1>Notifications</h1>
+<p><%= @user.orders %></p>
+<% @user.orders.each do |order| %>
+  <% order.refills.each do |refill|  %>
+    <%= "your #{refill.user_medication.medication.name} is ready for pick up!"  if refill.status == 'ready' %>
+  <% end %>
+<% end %>
