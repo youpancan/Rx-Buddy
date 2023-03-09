@@ -16,6 +16,10 @@ class RefillsController < ApplicationController
     @refill.save
   end
 
+  def review
+    @refills = current_user.non_confirmed_refills
+  end
+
   private
 
   def refill_params
