@@ -11,10 +11,10 @@ class OrdersController < ApplicationController
     @order = Order.new(user: current_user)
     @order.refills = current_user.no_order_refills
     if @order.save
-      redirect_to order_path(@order)
+      flash[:notice] = "Thank you for your order."
+      redirect_to dashboard_path
     else
       redirect_to root_path
-      #change
     end
   end
 end
