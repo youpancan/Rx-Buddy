@@ -1,39 +1,37 @@
-<div class='container'>
-  <div class="accordion" id="accordionExample">
-    <% active_meds.each_with_index do |active_med, index| %>
-      <div class="accordion-item mb-3 border">
-        <h2 class="accordion-header" id="heading<%= index %>">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-controls="collapse<%= index %>">
-            <img src="assets/pill.png" alt="pill" class='pill-icon'>
-            <%= active_med.medication.name %>
-          </button>
-        </h2>
-        <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
-            <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
-            <p>Refill Due Date: <%= active_med.refill_due_date %></p>
-            <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+<div class="accordion mb-3" id="accordionExample">
+  <% active_meds.each_with_index do |active_med, index| %>
+    <div class="accordion-item mb-3 border">
+      <h2 class="accordion-header" id="heading<%= index %>">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-controls="collapse<%= index %>">
+          <img src="assets/pill.png" alt="pill" class='pill-icon'>
+          <%= active_med.medication.name %>
+        </button>
+      </h2>
+      <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
+          <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
+          <p>Refill Due Date: <%= active_med.refill_due_date %></p>
+          <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
 
-            <div class="dropdown">
-              <% if active_med.can_refill? %>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Refill
-                </button>
-              <% else %>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
-                  Refill
-                </button>
-              <% end %>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'extreme'), method: :post, class: "dropdown-item" %></li>
-                <li><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium'), class: "dropdown-item", method: :post %></li>
-                <li><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'not urgent'), class: "dropdown-item", method: :post %></li>
-              </ul>
+          <div class="dropdown">
+            <% if active_med.can_refill? %>
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Refill
+              </button>
+            <% else %>
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
+                Refill
+              </button>
+            <% end %>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <div class='align'><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'extreme'), class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
+              <div class='align'><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium'), class: "dropdown-item" %><i class=" medium fa-solid fa-circle"></i></div>
+              <div class='align'><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'not urgent'), class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
             </div>
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
