@@ -1,6 +1,6 @@
 <div class='container mt-5'>
   <h1>Your Order Status</h1>
-<% @order.created_at.strftime("%d %B %Y") %>
+<%= @order.created_at.strftime("%d %B %Y") %>
 
 <div class="d-grid gap-3">
   <% @order.refills.each do |refill| %>
