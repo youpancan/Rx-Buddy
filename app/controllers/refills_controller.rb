@@ -25,7 +25,7 @@ class RefillsController < ApplicationController
     @refill = Refill.find(params[:id])
     @refill.destroy
     if current_user.no_order_refills == []
-     redirect_to dashboard_path
+      redirect_to dashboard_path
     else
       redirect_to review_path
     end
@@ -34,8 +34,9 @@ class RefillsController < ApplicationController
   def remove_all
     @refills = current_user.no_order_refills
     @refills.each do |refill|
-      refill.destroy if refill.order_id.nil?
+      refill.destroy
     end
+    redirect_to dashboard_path
   end
 
   private
