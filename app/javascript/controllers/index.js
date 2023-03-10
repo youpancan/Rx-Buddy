@@ -9,6 +9,3 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
-
-import NavbarStickyController from "./navbar_sticky_controller"
-application.register("navbar-sticky", NavbarStickyController)

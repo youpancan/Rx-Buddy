@@ -24,7 +24,11 @@ class RefillsController < ApplicationController
   def destroy
     @refill = Refill.find(params[:id])
     @refill.destroy
-    redirect_to dashboard_path
+    if current_user.no_order_refills == []
+     redirect_to dashboard_path
+    else
+      redirect_to review_path
+    end
   end
 
   def remove_all
