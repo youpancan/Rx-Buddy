@@ -6,8 +6,8 @@
   <% @order.refills.each do |refill| %>
     <div class="p-2 bg-light border">
       <div>
-      <%= cl_image_tag("mfg5lydicsxlmtuzihd4",
-      width: 50, height: 50, crop: :thumb, gravity: :face) %>
+      <%= cl_image_tag("pill_hksozw",
+      width: 15, height: 15, crop: :fill) %>
       <%# <img src="assets/pill.png" alt="pill" class="pill-icon"> %>
       <%= refill.user_medication.medication.name %>
       </div>
