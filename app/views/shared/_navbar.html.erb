@@ -1,55 +1,43 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <div class="container-fluid">
-
-    <input id="page-nav-toggle" class="main-navigation-toggle" type="checkbox" />
-    <label for="page-nav-toggle">
-      <svg class="icon--menu-toggle" viewBox="0 0 60 30">
-        <g class="icon-group">
-          <g class="icon--menu">
-            <path d="M 6 0 L 54 0" />
-            <path d="M 6 15 L 54 15" />
-            <path d="M 6 30 L 54 30" />
-          </g>
-          <g class="icon--close">
-            <path d="M 15 0 L 45 30" />
-            <path d="M 15 30 L 45 0" />
-          </g>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top px-2">
+  <input id="page-nav-toggle" class="main-navigation-toggle" type="checkbox" />
+  <label for="page-nav-toggle">
+    <svg class="icon--menu-toggle" viewBox="0 0 60 30">
+      <g class="icon-group">
+        <g class="icon--menu">
+          <path d="M 6 0 L 54 0" />
+          <path d="M 6 15 L 54 15" />
+          <path d="M 6 30 L 54 30" />
         </g>
-      </svg>
-    </label>
+        <g class="icon--close">
+          <path d="M 15 0 L 45 30" />
+          <path d="M 15 30 L 45 0" />
+        </g>
+      </g>
+    </svg>
+  </label>
 
-    <nav class="main-navigation">
-      <ul>
-        <%# <li> <%= link_to "Personal Information", dashboard_path , class: "nav-link" %>
-        <li> <%= link_to "Dashboard", dashboard_path, class: "nav-link" %></li>
-        <li> <%= link_to "My Orders", orders_path , class: "nav-link" %></li>
-        <li> <%= link_to "Prescription History", my_medications_path, class: "nav-link" %></li>
-      </ul>
-    </nav>
+  <nav class="main-navigation">
+    <ul>
+      <%# <li> <%= link_to "Personal Information", dashboard_path , class: "nav-link" %>
+      <li> <%= link_to "Dashboard", dashboard_path, class: "nav-link" %></li>
+      <li> <%= link_to "My Orders", orders_path , class: "nav-link" %></li>
+      <li> <%= link_to "Prescription History", my_medications_path, class: "nav-link" %></li>
+    </ul>
+  </nav>
 
-   <h2 class="m-0"><%= link_to 'RX Buddy', dashboard_path, class:'text-decoration-none text-white'%></h2>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <%# <span class="navbar-toggler-icon"></span> %>
-    </button>
+  <h2 class="m-0"><%= link_to 'RX Buddy', dashboard_path, class:'text-decoration-none text-white'%></h2>
+      <% if user_signed_in? %>
 
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-
-          <li class="nav-item dropdown">
-            <%= image_tag "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Personal Information", dashboard_show_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+        <div class="nav-item dropdown">
+          <%= image_tag "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "Personal Information", dashboard_show_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          </div>
+        </div>
+      <% else %>
+        <div class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </div>
+      <% end %>
 </div>
