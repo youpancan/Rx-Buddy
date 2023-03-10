@@ -48,9 +48,9 @@ user_cipralex = UserMedication.create!(medication: cipralex, user: user_three, n
                                        refill_due_date: Date.new(2023, 4, 9),
                                        prescriber: 'Dr. May', refillable: false)
 puts "creating orders"
-order_one = Order.create!(user: user_one)
-order_two = Order.create!(user: user_two)
-order_three = Order.create!(user: user_three)
+order_one = Order.create!(user: user_one, order_date: Date.new(2023, 2, 7))
+order_two = Order.create!(user: user_two, order_date: Date.new(2023, 1, 10))
+order_three = Order.create!(user: user_three, order_date: Date.new(2022, 12, 5))
 
 puts "creating refills"
 refill_one = Refill.create!(urgency: 'medium', status: 'in process', user_medication: user_alesse,
@@ -89,10 +89,10 @@ sarah_lexapro = UserMedication.create!(medication: lexapro, user: sarah, number_
                                        refill_due_date: Date.new(2023, 4, 9),
                                        prescriber: 'Dr. Smith', refillable: true)
 sarah_adderall = UserMedication.create!(medication: adderall, user: sarah, number_refills: 1,
-                                        refill_due_date: Date.new(2023, 4, 5),
+                                        refill_due_date: Date.new(2023, 3, 10),
                                         prescriber: 'Dr. Patel', refillable: true)
 sarah_omeprazole = UserMedication.create!(medication: omeprazole, user: sarah, number_refills: 2,
-                                          refill_due_date: Date.new(2023, 4, 1),
+                                          refill_due_date: Date.new(2023, 3, 11),
                                           prescriber: 'Dr. Patel', refillable: true)
 sarah_metformin = UserMedication.create!(medication: metformin, user: sarah, number_refills: 3,
                                          refill_due_date: Date.new(2023, 3, 17),
@@ -111,11 +111,11 @@ sarah_yaz = UserMedication.create!(medication: yaz, user: sarah, number_refills:
                                    prescriber: 'Dr. Smith', refillable: false)
 
 # creating orders
-sarah_order_pending = Order.create!(user: sarah)
-sarah_order_one = Order.create!(user: sarah)
-sarah_order_two = Order.create!(user: sarah)
-sarah_order_three = Order.create!(user: sarah)
-sarah_order_four = Order.create!(user: sarah)
+sarah_order_pending = Order.create!(user: sarah, order_date: Date.new(2023, 2, 10))
+sarah_order_one = Order.create!(user: sarah, order_date: Date.new(2023, 1, 7))
+sarah_order_two = Order.create!(user: sarah, order_date: Date.new(2022, 12, 4))
+sarah_order_three = Order.create!(user: sarah, order_date: Date.new(2022, 11, 9))
+sarah_order_four = Order.create!(user: sarah, order_date: Date.new(2022, 10, 6))
 
 # creating rfills for pending order
 sarah_refill_fourteen = Refill.create!(urgency: 'urgent', status: 'pending', user_medication: sarah_omeprazole,
@@ -147,18 +147,14 @@ sarah_refill_nine = Refill.create!(urgency: 'medium', status: 'complete', user_m
                                    order: sarah_order_three, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 
 # creating refills for order 3
-sarah_refill_ten = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_lexapro,
+sarah_refill_ten = Refill.create!(urgency: 'urgent', status: 'complete', user_medication: sarah_lexapro,
                                   order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 sarah_refill_eleven = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_adderall,
                                      order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 sarah_refill_twelve = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_omeprazole,
                                      order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-sarah_refill_thirteen = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_metformin,
+sarah_refill_thirteen = Refill.create!(urgency: 'not urgent', status: 'complete', user_medication: sarah_metformin,
                                        order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 
 # END OF MAIN USER FOR DEMO SCENARIO
-
-
-
-# last refill (using current date - pick up date), due date for refill, remining refills, pharamacy location
 # enums for refill status
