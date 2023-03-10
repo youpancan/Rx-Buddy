@@ -8,8 +8,25 @@
             <%= refill.user_medication.medication.name %>
           </button>
         </h2>
+          <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <h3 class="d-flex justify-content-center">Edit</h3>
+              <div class="dropdown">
+                  <%# add the remove this order button %>
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Urgency
+                  </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><%= button_to "I need it today", user_medication_refill_path(refill.user_medication, refill, urgency: 'extreme'), method: :patch, class: "dropdown-item" %></li>
+                  <li><%= button_to "I can wait 24hrs", user_medication_refill_path(refill.user_medication, refill, urgency: 'medium'), method: :patch, class: "dropdown-item" %></li>
+                  <li><%= button_to "I can wait a week", user_medication_refill_path(refill.user_medication, refill, urgency: 'not urgent'), method: :patch, class: "dropdown-item" %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
       </div>
     <% end %>
   </div>
   <%= button_to "Submit", orders_path%>
+  <%# add the delete whole order button %>
 </div>

@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get '/review_order', to: 'refills#review', as: :review
   resources :orders, only: %i[create show index]
   resources :user_medications, only: [] do
-    resources :refills, only: %i[create update]
+    resources :refills, only: %i[create update destroy]
   end
 end

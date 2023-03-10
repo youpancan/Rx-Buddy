@@ -26,9 +26,9 @@
                 </button>
               <% end %>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'extreme urgency'), class: "dropdown-item" %></li>
-                <li><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium urgency'), class: "dropdown-item" %></li>
-                <li><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'mild urgency'), class: "dropdown-item" %></li>
+                <li><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'extreme'), method: :post, class: "dropdown-item" %></li>
+                <li><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium'), class: "dropdown-item", method: :post %></li>
+                <li><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'not urgent'), class: "dropdown-item", method: :post %></li>
               </ul>
             </div>
           </div>
