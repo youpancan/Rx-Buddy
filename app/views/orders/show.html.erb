@@ -1,9 +1,24 @@
 <div class='container mt-5'>
   <h1>Your Order Status</h1>
+<%= @order.created_at.strftime("%d %B %Y") %>
+
+<div class="d-grid gap-3">
   <% @order.refills.each do |refill| %>
-    <div class='border'>
-      <div><%= refill.user_medication.medication.name %></div>
+    <div class="p-2 bg-light border">
+      <div>
+      <img src="assets/pill.png" alt="pill" class="pill-icon">
+      <%= refill.user_medication.medication.name %>
+      </div>
+
+
+
+
       <div><%= refill.status %></div>
     </div>
   <% end %>
+</div>
+
+
+
+
 </div>
