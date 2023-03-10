@@ -1,7 +1,7 @@
 <div class='container mt-5'>
   <h1>My Orders</h1>
 
-  <div>
+  <div class="accordion" id="accordionExample">
       <% @orders.each do |order| %>
         <div class='border'>
           <%= link_to order_path(order) do%>
