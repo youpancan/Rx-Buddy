@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   get '/my_medications', to: 'user_medications#my_medications'
   get '/notifications', to: 'notifications#show'
   get '/review_order', to: 'refills#review', as: :review
+  delete '/delete_refills', to: 'refills#remove_all', as: :remove_all
   resources :orders, only: %i[create show index]
   resources :user_medications, only: [] do
-    resources :refills, only: %i[create update]
+    resources :refills, only: %i[create update destroy]
   end
 end

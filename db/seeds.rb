@@ -147,18 +147,14 @@ sarah_refill_nine = Refill.create!(urgency: 'medium', status: 'complete', user_m
                                    order: sarah_order_three, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 
 # creating refills for order 3
-sarah_refill_ten = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_lexapro,
+sarah_refill_ten = Refill.create!(urgency: 'urgent', status: 'complete', user_medication: sarah_lexapro,
                                   order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 sarah_refill_eleven = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_adderall,
                                      order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 sarah_refill_twelve = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_omeprazole,
                                      order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-sarah_refill_thirteen = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_metformin,
+sarah_refill_thirteen = Refill.create!(urgency: 'not urgent', status: 'complete', user_medication: sarah_metformin,
                                        order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 
 # END OF MAIN USER FOR DEMO SCENARIO
-
-
-
-# last refill (using current date - pick up date), due date for refill, remining refills, pharamacy location
 # enums for refill status

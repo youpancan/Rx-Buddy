@@ -1,6 +1,6 @@
 class RefillsController < ApplicationController
   def create
-    @refill = Refill.new(params[:user_refill_id])
+    @refill = Refill.new(urgency: params[:urgency])
     @user_medication = UserMedication.find(params[:user_medication_id])
     @refill.user_medication = @user_medication
     if @refill.save
@@ -13,12 +13,31 @@ class RefillsController < ApplicationController
 
   def update
     @refill = Refill.find(params[:id])
-    @refill.update(refill_params)
+    @refill.update(urgency: params[:urgency])
     @refill.save
   end
 
   def review
     @refills = current_user.no_order_refills
+  end
+
+  def destroy
+    @refill = Refill.find(params[:id])
+    @refill.destroy
+    if current_user.no_order_refills == []
+      redirect_to dashboard_path
+    else
+      redirect_to review_path
+    end
+  end
+
+  def remove_all
+    @refills = current_user.no_order_refills
+    @refills.each do |refill|
+      refill.destroy
+    end
+    flash[:notice] = "Order cancelled"
+    redirect_to dashboard_path
   end
 
   private
