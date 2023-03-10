@@ -37,15 +37,6 @@ epipen = Medication.create!(name: "EpiPen", description: "Allergies", strength: 
 wellbutrin = Medication.create!(name: "Wellbutrin", description: "Anti-depressant", strength: '150mg')
 yaz = Medication.create!(name: "Yaz", description: "Birth-Control", strength: '28')
 
-
-puts "creating users"
-user_one = User.create!(first_name: 'Ayat', last_name: 'Amin', email: 'a@a.a', password: '123456', birthdate: Date.new(1995, 10, 9),
-                        address: '25 st', phone_number: '613-444-5555', pharmacy_location: '63 queen st')
-user_two = User.create(first_name: 'Maggie', last_name: 'Hum', email: 'a@b.a', password: '123456', birthdate: Date.new(1998, 9, 6),
-                       address: '65 st', phone_number: '613-444-5555', pharmacy_location: '63 king st')
-user_three = User.create(first_name: 'You', last_name: 'Pan', email: 'a@c.a', password: '123456', birthdate: Date.new(2000, 4, 9),
-                         address: '44 st', phone_number: '613-444-5555', pharmacy_location: '63 prince st')
-
 puts "creating user medications"
 user_alesse = UserMedication.create!(medication: alesse, user: user_two, number_refills: 3,
                                      refill_due_date: Date.new(2023, 3, 14),
