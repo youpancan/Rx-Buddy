@@ -1,0 +1,29 @@
+.fa-solid {
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.urgent {
+  color: #FE6D6D;
+}
+
+.medium {
+  color: #FDEA42;
+}
+
+.not-urgent{
+  color: #4FBE54;
+}
+
+.align {
+  display: flex;
+  vertical-align: middle;
+  justify-content: space-between;
+  border-bottom: solid #D9D9D9 1px;
+  padding: 5px;
+}
+
+.dropdown-menu {
+  padding: 0;
+}

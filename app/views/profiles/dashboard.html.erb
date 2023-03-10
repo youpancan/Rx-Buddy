@@ -1,11 +1,12 @@
-<div class='container mt-5'>
-  <h1>Dashboard</h1>
-<h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+<div class='container mt-4'>
+  <h3 class='client-name'><%= current_user.first_name %> <%= current_user.last_name %></h3>
+  <h4 class='pharmacy-name'>Saamy Pharmacy</h4>
 
-<%= render "shared/medication_card", active_meds: @active_meds%>
+  <h5 class='active'>Active medications</h5>
+  <%= render "shared/medication_card", active_meds: @active_meds%>
 
   <% unless current_user.no_order_refills == [] %>
-  <%= link_to "Review", review_path %>
+  <%= link_to "Review Order", review_path, class:'btn btn-primary mb-4' %>
   <% end %>
 
   <div style="width: 100%; height: 600px; border:solid;"
