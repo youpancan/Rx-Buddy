@@ -4603,12 +4603,12 @@ textarea.form-control-lg {
 }
 
 .alert-primary {
-  color: #192190;
+  color: #006D77;
   background-color: #d4d7fc;
   border-color: #bfc3fb;
 }
 .alert-primary .alert-link {
-  color: #141a73;
+  color: #006D77;
 }
 
 .alert-secondary {
@@ -10966,7 +10966,7 @@ html {
 }
 
 .bg-gradient-primary-to-secondary {
-  background: linear-gradient(45deg, #2937f0, #9f1ae2) !important;
+  background: linear-gradient(#006D77, #83C5BE) !important;
 }
 
 .font-alt {
@@ -10974,7 +10974,7 @@ html {
 }
 
 .text-gradient {
-  background: -webkit-linear-gradient(#2937f0, #9f1ae2);
+  background: -webkit-linear-gradient(#006D77, #83C5BE);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -10983,7 +10983,7 @@ html {
 aside,
 section {
   padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-bottom: 1rem;
 }
 
 .app-badge {
@@ -11210,8 +11210,8 @@ footer a:hover, footer a:active, footer a:focus {
 
 .masthead {
   background-color: #f8f9fa;
-  padding-top: 9.5rem;
-  padding-bottom: 5rem;
+  padding-top: 5rem;
+
 }
 .masthead .masthead-device-mockup {
   display: flex;
