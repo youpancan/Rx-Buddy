@@ -30,6 +30,16 @@
   box-sizing: border-box;
 }
 
+nav.navbar-fixed-top {
+  position:fixed;
+  top:0;
+}
+
+body::before {
+  display:block;
+  content: '';
+  height:60px; /* or whatever */
+}
 body {
   font-family: var(--font-primary);
   font-size: var(--font-size);

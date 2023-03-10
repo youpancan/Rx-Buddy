@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <div class="container-fluid">
 
     <input id="page-nav-toggle" class="main-navigation-toggle" type="checkbox" />
@@ -27,11 +27,11 @@
       </ul>
     </nav>
 
+   <h2 class="m-0"><%= link_to 'RX Buddy', dashboard_path, class:'text-decoration-none text-white'%></h2>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <%# <span class="navbar-toggler-icon"></span> %>
     </button>
 
-   <h2 class="m-0"><%= link_to 'RX Buddy', dashboard_path, class:'text-decoration-none text-white'%></h2>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
