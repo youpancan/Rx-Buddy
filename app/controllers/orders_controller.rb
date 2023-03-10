@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(user: current_user)
+    @order = Order.new(user: current_user, order_date: Date.today)
     @order.refills = current_user.no_order_refills
     if @order.save
       flash[:notice] = "Thank you for your order."
