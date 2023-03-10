@@ -1,10 +1,25 @@
 <div class='container mt-5'>
-  <h1>All orders</h1>
+  <h1>My Orders</h1>
+
+  <div class="d-grid gap-3" >
     <% @orders.each do |order| %>
-      <div class='border'>
-        <%= link_to order_path(order) do%>
-          <%= order.id %>
-        <% end %>
+      <div class="p-2 bg-light border" >
+        <div class="flexbox">
+            <div class="flexitem">
+             <%= link_to order_path(order), class:'text-decoration-none text-dark' do  %>
+            <h4> <img src="assets/pill.png" alt="pill" class="pill-icon">
+                Ordered on <%= order.created_at.strftime("%d %B %Y")%></h4>
+            </div>
+
+            <div class="flexitem">
+              <span><i class="fa-duotone fa-circle-arrow-right"></i></span>
+            </div>
+          <% end %>
+
+        </div>
       </div>
     <% end %>
+  </div>
+
+
 </div>

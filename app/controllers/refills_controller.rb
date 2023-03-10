@@ -36,6 +36,7 @@ class RefillsController < ApplicationController
     @refills.each do |refill|
       refill.destroy
     end
+    flash[:notice] = "Order cancelled"
     redirect_to dashboard_path
   end
 
