@@ -1,19 +1,28 @@
-.fa-solid {
+// .fa-solid {
+//   padding-right: 15px;
+//   display: flex;
+//   align-items: center;
+// }
+
+.urgent {
+  color: #FE6D6D;
   padding-right: 15px;
   display: flex;
   align-items: center;
 }
 
-.urgent {
-  color: #FE6D6D;
-}
-
 .medium {
   color: #FDEA42;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .not-urgent{
   color: #4FBE54;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .align {
