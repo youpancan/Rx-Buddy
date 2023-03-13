@@ -1,3 +1,3 @@
 class Notification < ApplicationRecord
-  belongs_to :user_medication
+  belongs_to :refill
 end
