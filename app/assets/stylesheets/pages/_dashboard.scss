@@ -7,7 +7,7 @@
 .pharmacy-name {
   font-family: 'Noto Serif Lao', serif;
   font-weight: lighter;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   padding-left: 7px;
 }
 
@@ -28,4 +28,8 @@
   background-size: contain;
   background-position: top;
   background-repeat: no-repeat
+}
+
+.accordion-button:focus {
+  box-shadow: none;
 }

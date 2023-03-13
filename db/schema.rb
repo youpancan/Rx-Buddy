@@ -45,14 +45,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_162214) do
   end
 
   create_table "refills", force: :cascade do |t|
-    t.string "urgency"
-    t.string "status"
     t.date "pick_up_date"
     t.text "notes"
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_medication_id", null: false
+    t.integer "status", default: 0, null: false
+    t.integer "urgency", default: 3, null: false
     t.index ["order_id"], name: "index_refills_on_order_id"
     t.index ["user_medication_id"], name: "index_refills_on_user_medication_id"
   end

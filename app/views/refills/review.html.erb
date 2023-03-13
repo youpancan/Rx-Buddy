@@ -7,13 +7,13 @@
             <div class="p-2"><img src="assets/pill.png" alt="pill" class='pill-icon'></div>
             <div class="p-2"><%= refill.user_medication.medication.name %></div>
             <div class="ms-auto p-2">
-              <% if refill.urgency == 'urgent' %>
-                <i class=" urgent fa-solid fa-circle"></i>
-              <% elsif refill.urgency == 'medium' %>
-                <i class=" medium fa-solid fa-circle"></i>
-              <% else %>
-                <i class=" not-urgent fa-solid fa-circle"></i>
-              <% end %>
+            <% if refill.urgent? %>
+              <i class=" urgent fa-solid fa-circle"></i>
+            <% elsif refill.medium? %>
+              <i class=" medium fa-solid fa-circle"></i>
+            <% else %>
+              <i class=" not-urgent fa-solid fa-circle"></i>
+            <% end %>
             </div>
           </button>
         </h2>
@@ -29,7 +29,7 @@
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class='align'><%= button_to "I need it today", user_medication_refill_path(refill.user_medication, refill, urgency: 'urgent'), method: :patch, class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
                     <div class='align'><%= button_to "I can wait 24hrs", user_medication_refill_path(refill.user_medication, refill, urgency: 'medium'), method: :patch, class: "dropdown-item" %><i class=" medium fa-solid fa-circle"></i></div>
-                    <div class='align'><%= button_to "I can wait a week", user_medication_refill_path(refill.user_medication, refill, urgency: 'not urgent'), method: :patch, class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
+                    <div class='align'><%= button_to "I can wait a week", user_medication_refill_path(refill.user_medication, refill, urgency: 'not_urgent'), method: :patch, class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
                   </div>
                   <div class="dropdown d-flex justify-content-end">
                       <%= link_to user_medication_refill_path(refill.user_medication, refill), data: { turbo_method: :delete, turbo_confirm: 'Sure? ⚠️' }, class: 'text-secondary mt-2' do %>
