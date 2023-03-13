@@ -118,11 +118,11 @@ sarah_order_three = Order.create!(user: sarah, order_date: Date.new(2022, 11, 9)
 sarah_order_four = Order.create!(user: sarah, order_date: Date.new(2022, 10, 6))
 
 # creating rfills for pending order
-Refill.create!(urgency: 'urgent', status: 'pending', user_medication: sarah_omeprazole,
+sarah_refill_fourteen = Refill.create!(urgency: 'urgent', status: 'received', user_medication: sarah_omeprazole,
                                        order: sarah_order_pending, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
-Refill.create!(urgency: 'medium', status: 'pending', user_medication: sarah_metformin,
+sarah_refill_fifteen = Refill.create!(urgency: 'medium', status: 'in process', user_medication: sarah_metformin,
                                       order: sarah_order_pending, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
-Refill.create!(urgency: 'medium', status: 'pending', user_medication: sarah_adderall,
+sarah_refill_sixteen = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_adderall,
                                       order: sarah_order_pending, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
 # creating refills for order 1
 Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_yaz,
