@@ -15,7 +15,7 @@
         <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
-            <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
+            <p>You have <strong><%= pluralize active_med.number_refills, 'refill' %></strong> left</p>
             <p>Refill Due Date: <%= active_med.refill_due_date %></p>
             <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
             <div class="dropdown">
@@ -40,7 +40,7 @@
         <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
-            <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
+            <p>You have <strong><%= pluralize active_med.number_refills, 'refill' %></strong> left</p>
             <p>Refill Due Date: <strong><%= active_med.refill_due_date %></strong></p>
             <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
             <div class='steps border-top d-flex flex-row py-4'>
@@ -85,7 +85,7 @@
         <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
-            <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
+            <p>You have <strong><%= pluralize active_med.number_refills, 'refill' %></strong> left</p>
             <p>Refill Due Date: <%= active_med.refill_due_date %></p>
             <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
             <div class="dropdown">
