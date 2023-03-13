@@ -53,11 +53,11 @@ order_two = Order.create!(user: user_two, order_date: Date.new(2023, 1, 10))
 order_three = Order.create!(user: user_three, order_date: Date.new(2022, 12, 5))
 
 puts "creating refills"
-Refill.create!(urgency: 'medium', status: 'in process', user_medication: user_alesse,
+Refill.create!(urgency: 1, status: 1, user_medication: user_alesse,
                             order: order_one, notes: 'no comment', pick_up_date: Date.new(2023, 3, 7))
-Refill.create!(urgency: 'urgent', status: 'received', user_medication: user_amoxicillin,
+Refill.create!(urgency: 2, status: 2, user_medication: user_amoxicillin,
                             order: order_two, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
-Refill.create!(urgency: 'medium', status: 'ready', user_medication: user_cipralex,
+Refill.create!(urgency: 1, status: 2, user_medication: user_cipralex,
                               order: order_three, notes: 'no comment', pick_up_date: Date.new(2023, 3, 2))
 
 
@@ -118,42 +118,42 @@ sarah_order_three = Order.create!(user: sarah, order_date: Date.new(2022, 11, 9)
 sarah_order_four = Order.create!(user: sarah, order_date: Date.new(2022, 10, 6))
 
 # creating rfills for pending order
-sarah_refill_fourteen = Refill.create!(urgency: 'urgent', status: 'received', user_medication: sarah_omeprazole,
+Refill.create!(urgency: 2, status: 0, user_medication: sarah_omeprazole,
                                        order: sarah_order_pending, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
-sarah_refill_fifteen = Refill.create!(urgency: 'medium', status: 'in process', user_medication: sarah_metformin,
+Refill.create!(urgency: 1, status: 0, user_medication: sarah_metformin,
                                       order: sarah_order_pending, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
-sarah_refill_sixteen = Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_adderall,
+Refill.create!(urgency: 1, status: 0, user_medication: sarah_adderall,
                                       order: sarah_order_pending, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
 # creating refills for order 1
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_yaz,
+Refill.create!(urgency: 1, status: 1, user_medication: sarah_yaz,
                                   order: sarah_order_one, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_wellbutrin,
+Refill.create!(urgency: 1, status: 1, user_medication: sarah_wellbutrin,
                                   order: sarah_order_one, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_epipen,
+Refill.create!(urgency: 1, status: 1, user_medication: sarah_epipen,
                                     order: sarah_order_one, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
 
 # creating refills for order 2
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_yaz,
+Refill.create!(urgency: 1, status: 1, user_medication: sarah_yaz,
                                    order: sarah_order_two, notes: 'no comment', pick_up_date: Date.new(2023, 2, 5))
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_wellbutrin,
+Refill.create!(urgency: 1, status: 2, user_medication: sarah_wellbutrin,
                                    order: sarah_order_two, notes: 'no comment', pick_up_date: Date.new(2023, 2, 5))
 
 # creating refills for order 3
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_yaz,
+Refill.create!(urgency: 1, status: 3, user_medication: sarah_yaz,
                                   order: sarah_order_three, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_wellbutrin,
+Refill.create!(urgency: 1, status: 2, user_medication: sarah_wellbutrin,
                                     order: sarah_order_three, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_cetirizine,
+Refill.create!(urgency: 1, status: 2, user_medication: sarah_cetirizine,
                                    order: sarah_order_three, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 
 # creating refills for order 3
-Refill.create!(urgency: 'urgent', status: 'complete', user_medication: sarah_lexapro,
+Refill.create!(urgency: 2, status: 3, user_medication: sarah_lexapro,
                                   order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_adderall,
+Refill.create!(urgency: 1, status: 3, user_medication: sarah_adderall,
                                      order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-Refill.create!(urgency: 'medium', status: 'complete', user_medication: sarah_omeprazole,
+Refill.create!(urgency: 1, status: 3, user_medication: sarah_omeprazole,
                                      order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-Refill.create!(urgency: 'not urgent', status: 'complete', user_medication: sarah_metformin,
+Refill.create!(urgency: 0, status: 3, user_medication: sarah_metformin,
                                        order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 
 # END OF MAIN USER FOR DEMO SCENARIO
