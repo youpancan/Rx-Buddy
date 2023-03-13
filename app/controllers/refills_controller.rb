@@ -15,6 +15,7 @@ class RefillsController < ApplicationController
     @refill = Refill.find(params[:id])
     @refill.update(urgency: params[:urgency])
     @refill.save
+    redirect_to review_path
   end
 
   def review
