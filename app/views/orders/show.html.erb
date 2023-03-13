@@ -8,9 +8,17 @@
         <div>
           <img src="assets/pill.png" alt="pill" class="pill-icon"/>
           <%= refill.user_medication.medication.name %>
-        </div>
+          <% if refill.status == 'received' %>
+            <i class="paper fa-solid fa-file-circle-plus"></i>
+          <% elsif refill.status == 'in process' %>
+            <i class="gear fa-solid fa-gear"></i>
+          <% elsif refill.status == 'ready' %>
+            <i class="check fa-regular fa-circle-check"></i>
+          <% end %>
+        <%# </div>
 
-        <div><%= refill.status %></div>
+        <div> %>
+        </div>
       </div>
     <% end %>
   </div>
