@@ -47,7 +47,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <div class='align'><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'urgent'), class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
               <div class='align'><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium'), class: "dropdown-item" %><i class=" medium fa-solid fa-circle"></i></div>
-              <div class='align'><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'not urgent'), class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
+              <div class='align'><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'not_urgent'), class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
             </div>
           </div>
         </div>
