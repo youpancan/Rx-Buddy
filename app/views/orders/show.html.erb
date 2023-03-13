@@ -6,7 +6,7 @@
     <% @order.refills.each do |refill| %>
       <div class="p-2 bg-light border">
         <div>
-          <img src="assets/pill.png" alt="pill" class="pill-icon"/>
+          <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
           <%= refill.user_medication.medication.name %>
           <% if refill.status == 'received' %>
             <i class="paper fa-solid fa-file-circle-plus"></i>

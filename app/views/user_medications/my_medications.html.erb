@@ -9,7 +9,7 @@
 
         <h2 class="accordion-header" id="heading<%= index %>">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-controls="collapse<%= index %>">
-            <img src="assets/pill.png" alt="pill" class='pill-icon'>
+            <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
             <%= user_medication.medication.name %>
           </button>
         </h2>
