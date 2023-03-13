@@ -29,3 +29,7 @@
   background-position: top;
   background-repeat: no-repeat
 }
+
+.accordion-button:focus {
+  box-shadow: none;
+}
