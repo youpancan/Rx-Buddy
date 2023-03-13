@@ -6,9 +6,7 @@
       <div class="p-3 rounded bg-light border align-content-center" >
         <%= link_to order_path(order), class:'text-decoration-none text-dark' do  %>
           <div class='d-flex justify-space-between'>
-            <%# <img src="assets/pill.png" alt="pill" class="pill-icon"/> %>
-            <%= cl_image_tag("pill_hksozw",
-          width: 20, height: 20, crop: :thumb) %>&nbsp;&nbsp;&nbsp;
+            <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
             <div> Ordered on <%= order.order_date %></div>
             <i class="fa-solid fa-chevron-right ms-auto"></i>
           </div>
