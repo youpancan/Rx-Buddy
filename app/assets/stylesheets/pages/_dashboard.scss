@@ -24,7 +24,7 @@
 }
 
 .line {
-  background-image: url(assets/line.png);
+  background-image: asset-url("line.png");
   background-size: contain;
   background-position: top;
   background-repeat: no-repeat
