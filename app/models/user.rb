@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :user_medications
   has_many :user_allergies
+  has_many :allergies, through: :user_allergies
   has_many :refills, through: :user_medications
 
   # Multiple has_many :through--start

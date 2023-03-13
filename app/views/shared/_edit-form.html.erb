@@ -6,6 +6,7 @@
   <%= f.input :birthdate %>
   <%= f.input :phone_number %>
   <%= f.input :address %>
+  <%= f.association :allergies, label_method: :allergy_type, input_html: {multiple: true} %>
   <%= f.button :submit, class:'btn btn-primary' %>
 <% end %>
 </div>
