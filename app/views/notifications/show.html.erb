@@ -1,9 +1,10 @@
+<div data-controller="notification-subscription">
 <h1>Notifications</h1>
 <p><%= @user.orders %></p>
 
 <% @user.orders.each do |order| %>
   <% order.refills.each do |refill|  %>
-   <% if refill.status == 'ready' %>
+   <% if refill.complete? %>
     <%= "your #{refill.user_medication.medication.name} is ready for pick up!" %>
     <% @sum += 1 %>
     <% @order_meds.push(refill.user_medication.medication.name) %>
@@ -13,3 +14,4 @@
   <p><%= "your order is ready to pick up! " if @sum == order.refills.count %></p>
 <%# <p><%= "your #{@order_meds.join(',')} are ready to pick up! " if @sum == order.refills.count %>
 <% end %>
+</div>

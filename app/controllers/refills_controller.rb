@@ -41,6 +41,16 @@ class RefillsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def pharmacy_edit
+    @refill = Refill.find(params[:id])
+  end
+
+  def pharmacy_update
+    raise
+    @refill = Refill.find(params[:id])
+
+  end
+
   private
 
   def refill_params
