@@ -7,13 +7,13 @@
             <div class="p-2"><img src="assets/pill.png" alt="pill" class='pill-icon'></div>
             <div class="p-2"><%= refill.user_medication.medication.name %></div>
             <div class="ms-auto p-2">
-            <% if refill.urgency == 'urgent' %>
-              <i class=" urgent fa-solid fa-circle"></i>
-            <% elsif refill.urgency == 'medium' %>
-              <i class=" medium fa-solid fa-circle"></i>
-            <% else %>
-              <i class=" not-urgent fa-solid fa-circle"></i>
-            <% end %>
+              <% if refill.urgency == 'urgent' %>
+                <i class=" urgent fa-solid fa-circle"></i>
+              <% elsif refill.urgency == 'medium' %>
+                <i class=" medium fa-solid fa-circle"></i>
+              <% else %>
+                <i class=" not-urgent fa-solid fa-circle"></i>
+              <% end %>
             </div>
           </button>
         </h2>
