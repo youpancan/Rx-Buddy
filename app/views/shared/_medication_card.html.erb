@@ -10,48 +10,103 @@
           <%= active_med.medication.name %>
         </button>
       </h2>
-      <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
-          <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
-          <p>Refill Due Date: <%= active_med.refill_due_date %></p>
-          <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
-          <div class='steps border-top d-flex flex-row py-4'>
-            <p class='mb-0'>Steps until pickup:</p>
-            <% if active_med.refills.last.status == 'received' %>
-              <i class="status fa-solid fa-file-circle-plus"></i>
-              <i class="fa-solid fa-gear"></i>
-              <i class="fa-regular fa-circle-check"></i>
-            <% elsif active_med.refills.last.status == 'in process' %>
-              <i class="status fa-solid fa-file-circle-plus"></i>
-              <i class="status fa-solid fa-gear"></i>
-              <i class="fa-regular fa-circle-check"></i>
-            <% elsif active_med.refills.last.status == 'complete' %>
-              <i class="status fa-solid fa-file-circle-plus mx-2"></i>
-              <i class="status fa-solid fa-gear mx-2"></i>
-              <i class="status fa-regular fa-circle-check mx-2"></i>
-            <% else %>
-              <p>pending</p>
-            <% end %>
-          </div>
-          <div class="dropdown">
-            <% if active_med.can_refill? %>
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Refill
-              </button>
-            <% else %>
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
-                Refill
-              </button>
-            <% end %>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <div class='align'><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'urgent'), class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
-              <div class='align'><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium'), class: "dropdown-item" %><i class=" medium fa-solid fa-circle"></i></div>
-              <div class='align'><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'not_urgent'), class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
+      <% if active_med.refills.last.order_id.nil? %>
+      <%# this is where we add the tick if it is ticked %>
+        <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
+            <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
+            <p>Refill Due Date: <%= active_med.refill_due_date %></p>
+            <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <div class="dropdown">
+              <% if active_med.can_refill? %>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Refill
+                </button>
+              <% else %>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
+                  Refill
+                </button>
+              <% end %>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <div class='align'><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'urgent'), class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
+                <div class='align'><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium'), class: "dropdown-item" %><i class=" medium fa-solid fa-circle"></i></div>
+                <div class='align'><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'not_urgent'), class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% elsif !active_med.refills.last.picked_up? %>
+        <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
+            <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
+            <p>Refill Due Date: <strong><%= active_med.refill_due_date %></strong></p>
+            <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <div class='steps border-top d-flex flex-row py-4'>
+              <p class='mb-0'>Steps until pickup:</p>
+              <% if active_med.refills.last.status == 'received' %>
+                <i class="status fa-solid fa-file-circle-plus mx-2"></i>
+                <i class="pending fa-solid fa-gear mx-2"></i>
+                <i class="pending fa-regular fa-circle-check mx-2"></i>
+              <% elsif active_med.refills.last.status == 'in_process' %>
+                <i class="status fa-solid fa-file-circle-plus mx-2"></i>
+                <i class="status fa-solid fa-gear mx-2"></i>
+                <i class="pending fa-regular fa-circle-check mx-2"></i>
+              <% elsif active_med.refills.last.status == 'complete' %>
+                <i class="status fa-solid fa-file-circle-plus mx-2"></i>
+                <i class="status fa-solid fa-gear mx-2"></i>
+                <i class="status fa-regular fa-circle-check mx-2"></i>
+              <% else %>
+                <i class="pending fa-solid fa-file-circle-plus mx-2"></i>
+                <i class="pending fa-solid fa-gear mx-2"></i>
+                <i class="pending fa-regular fa-circle-check mx-2"></i>
+              <% end %>
+            </div>
+            <div class="dropdown">
+              <% if active_med.can_refill? %>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Refill
+                </button>
+              <% else %>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
+                  Refill
+                </button>
+              <% end %>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <div class='align'><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'urgent'), class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
+                <div class='align'><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium'), class: "dropdown-item" %><i class=" medium fa-solid fa-circle"></i></div>
+                <div class='align'><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'not_urgent'), class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
+            <p>You have <strong><%= pluralize active_med.number_refills.size, 'refill' %></strong> left</p>
+            <p>Refill Due Date: <%= active_med.refill_due_date %></p>
+            <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <div class="dropdown">
+              <% if active_med.can_refill? %>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Refill
+                </button>
+              <% else %>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
+                  Refill
+                </button>
+              <% end %>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <div class='align'><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'urgent'), class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
+                <div class='align'><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium'), class: "dropdown-item" %><i class=" medium fa-solid fa-circle"></i></div>
+                <div class='align'><%= button_to "I can wait a week", user_medication_refills_path(active_med, urgency: 'not_urgent'), class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
