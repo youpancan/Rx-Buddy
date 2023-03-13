@@ -111,19 +111,23 @@ sarah_yaz = UserMedication.create!(medication: yaz, user: sarah, number_refills:
                                    prescriber: 'Dr. Smith', refillable: false)
 
 # creating orders
-sarah_order_pending = Order.create!(user: sarah, order_date: Date.new(2023, 2, 10))
-sarah_order_one = Order.create!(user: sarah, order_date: Date.new(2023, 1, 7))
-sarah_order_two = Order.create!(user: sarah, order_date: Date.new(2022, 12, 4))
-sarah_order_three = Order.create!(user: sarah, order_date: Date.new(2022, 11, 9))
-sarah_order_four = Order.create!(user: sarah, order_date: Date.new(2022, 10, 6))
+sarah_order_done = Order.create!(user: sarah, order_date: Date.new(2023, 2, 10))
 
-# creating rfills for pending order
+sarah_order_one = Order.create!(user: sarah, order_date: Date.new(2023, 1, 7))
+
+sarah_order_two = Order.create!(user: sarah, order_date: Date.new(2022, 12, 4))
+
+sarah_order_three = Order.create!(user: sarah, order_date: Date.new(2022, 11, 9))
+
+sarah_order_four = Order.create!(user: sarah, order_date: Date.new(2023, 3, 6)) # the order that will show for the steps
+
+# creating rfills for done order
 Refill.create!(urgency: 2, status: 0, user_medication: sarah_omeprazole,
-                                       order: sarah_order_pending, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
+                                       order: sarah_order_done, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
 Refill.create!(urgency: 1, status: 0, user_medication: sarah_metformin,
-                                      order: sarah_order_pending, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
+                                      order: sarah_order_done, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
 Refill.create!(urgency: 1, status: 0, user_medication: sarah_adderall,
-                                      order: sarah_order_pending, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
+                                      order: sarah_order_done, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
 # creating refills for order 1
 Refill.create!(urgency: 1, status: 1, user_medication: sarah_yaz,
                                   order: sarah_order_one, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
@@ -147,14 +151,14 @@ Refill.create!(urgency: 1, status: 2, user_medication: sarah_cetirizine,
                                    order: sarah_order_three, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
 
 # creating refills for order 3
-Refill.create!(urgency: 2, status: 3, user_medication: sarah_lexapro,
-                                  order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-Refill.create!(urgency: 1, status: 3, user_medication: sarah_adderall,
-                                     order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-Refill.create!(urgency: 1, status: 3, user_medication: sarah_omeprazole,
-                                     order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
-Refill.create!(urgency: 0, status: 3, user_medication: sarah_metformin,
-                                       order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 1, 5))
+Refill.create!(urgency: 2, status: 4, user_medication: sarah_lexapro,
+                                  order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 5, 6))
+Refill.create!(urgency: 1, status: 4, user_medication: sarah_adderall,
+                                     order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2025, 5, 5))
+Refill.create!(urgency: 1, status: 4, user_medication: sarah_omeprazole,
+                                     order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 5, 5))
+Refill.create!(urgency: 0, status: 4, user_medication: sarah_metformin,
+                                       order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 5, 5))
 
 # END OF MAIN USER FOR DEMO SCENARIO
 # enums for refill status
