@@ -12,3 +12,6 @@ application.register("map", MapController)
 
 import NoticeConfirmationController from "./notice_confirmation_controller"
 application.register("notice-confirmation", NoticeConfirmationController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)
