@@ -1,19 +1,21 @@
 <div class='container mt-5'>
-  <h1>Your Order Status</h1>
-  <%= @order.order_date %>
+  <h1 class='m-0'>Your Order Status</h1>
+  <h2 class='date mb-5'><%= @order.order_date %></h2>
 
   <div class="d-grid gap-3">
     <% @order.refills.each do |refill| %>
-      <div class="p-2 bg-light border">
-        <div>
+      <div class="p-2 bg-light border p-3">
+          <div class="d-flex flex-row">
           <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
-          <%= refill.user_medication.medication.name %>
+          <span class='flex-grow-1 align-items-center'><%= refill.user_medication.medication.name %></span>
           <% if refill.status == 'received' %>
-            <i class="paper fa-solid fa-file-circle-plus"></i>
+            <i class="status fa-solid fa-file-circle-plus"></i>
           <% elsif refill.status == 'in process' %>
-            <i class="gear fa-solid fa-gear"></i>
-          <% elsif refill.status == 'ready' %>
-            <i class="check fa-regular fa-circle-check"></i>
+            <i class="status fa-solid fa-gear"></i>
+          <% elsif refill.status == 'complete' %>
+            <i class="status fa-regular fa-circle-check"></i>
+          <% else %>
+          <p>Pending</p>
           <% end %>
         <%# </div>
 
