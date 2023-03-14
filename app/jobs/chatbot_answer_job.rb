@@ -5,7 +5,7 @@ class ChatbotAnswerJob < ApplicationJob
     message = Message.new(
       chatbot: chatbot,
       from_chatbot: true,
-      content: "Hello! I am a chatbot. This is the answer to your question: #{ message.content }"
+      content: "I dunno :/ This is the answer to your question: #{ message.content }"
     )
 
     if message.save
