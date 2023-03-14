@@ -41,11 +41,20 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw);
+  color: #006D77;
 }
 @media (min-width: 1200px) {
   h1, .h1 {
     font-size: 2.5rem;
   }
+
+}
+#homepage-h1 {
+  border-bottom: 0px solid transparent;
+}
+h1 span {
+  color: #fff;
+  border-bottom: 4px solid #E29578;
 }
 
 h2, .h2 {
@@ -57,9 +66,10 @@ h2, .h2 {
   }
 }
 
-p {
+p .text {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: white;
 }
 
 
@@ -809,5 +819,14 @@ table {
 }
 
 .bi-phone {
-  size: 10px;
+  font-size: 50px;
+}
+.bi-camera {
+  font-size: 50px;
+}
+.bi-gift {
+  font-size: 50px;
+}
+.home-page {
+  background-color: white;
 }
