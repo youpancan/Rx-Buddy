@@ -42,11 +42,11 @@ nav.navbar-fixed-top {
   top:0;
 }
 
-body::before {
-  display:block;
-  content: '';
-  height:60px; /* or whatever */
-}
+// body::before {
+//   display:block;
+//   content: '';
+//   height:60px; /* or whatever */
+// }
 body {
   font-family: var(--font-primary);
   font-size: var(--font-size);
@@ -228,4 +228,8 @@ h1 {
 @keyframes link-appear {
   0%, 25%   { transform: translateY(100%); }
   50%, 100% { transform: translateY(0); }
+}
+
+.chat-icon {
+  color: #F0F7EE;
 }
