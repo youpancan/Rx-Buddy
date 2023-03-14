@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_213721) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_200731) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,7 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_213721) do
   end
 
   create_table "refills", force: :cascade do |t|
-    t.date "pick_up_date"
     t.text "notes"
     t.bigint "order_id"
     t.datetime "created_at", null: false
@@ -70,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_213721) do
     t.bigint "user_medication_id", null: false
     t.integer "status", default: 0, null: false
     t.integer "urgency", default: 3, null: false
+    t.date "pick_up_date", default: -> { "(CURRENT_TIMESTAMP + 'P10D'::interval)" }, null: false
     t.index ["order_id"], name: "index_refills_on_order_id"
     t.index ["user_medication_id"], name: "index_refills_on_user_medication_id"
   end

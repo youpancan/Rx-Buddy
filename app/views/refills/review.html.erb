@@ -4,7 +4,7 @@
       <div class="accordion-item mb-3 border">
         <h2 class="accordion-header" id="heading<%= index %>">
           <button class="d-flex accordion-button collapsed review-refill" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-controls="collapse<%= index %>">
-            <div class="p-2"><img src="assets/pill.png" alt="pill" class='pill-icon'></div>
+            <div class="p-2"> <%= image_tag "pill.png", class: 'pill-icon'  %></div>
             <div class="p-2"><%= refill.user_medication.medication.name %></div>
             <div class="ms-auto p-2">
             <% if refill.urgent? %>

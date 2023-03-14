@@ -1,0 +1,6 @@
+<h1>refill status update</h1>
+
+<%= simple_form_for @refill, url: pharmacy_refill_update_path, method: 'patch' do |f| %>
+  <%= f.input :status, collection: 0..3 %>
+  <%= f.button :submit, class:'btn btn-primary' %>
+<% end %>

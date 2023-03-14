@@ -6,6 +6,8 @@
   <%= f.input :birthdate %>
   <%= f.input :phone_number %>
   <%= f.input :address %>
+  <%= f.association :allergies, label_method: :allergy_type, input_html: {id: "input_tags", multiple: true, data: {controller: "tom-select"}} %>
   <%= f.button :submit, class:'btn btn-primary' %>
 <% end %>
 </div>
+<%# <input type="text" id="input-tags" value="awesome,neat" autocomplete="off"> %>
