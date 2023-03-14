@@ -66,7 +66,7 @@ h2, .h2 {
   }
 }
 
-p .text {
+p.text {
   margin-top: 0;
   margin-bottom: 1rem;
   color: white;
@@ -831,4 +831,21 @@ table {
 }
 .home-page {
   background-color: white;
+}
+
+.icon-feature {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.feature:hover .icon-feature {
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  color: white;
 }
