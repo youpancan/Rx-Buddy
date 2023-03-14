@@ -6,4 +6,10 @@ class Refill < ApplicationRecord
   enum urgency: { not_urgent: 0, medium: 1, urgent: 2, not_specified: 3 }
   # when we put picked_up!, the refill due date for medication should be 30 days from now
   # and amount of refills should decrease by 1
+  def pick_up_and_set_refill_date
+    picked_up!
+    user_medication.refill_due_date = Date.today + 30
+    user_medication.number_refills -= 1
+    user_medication.save
+  end
 end
