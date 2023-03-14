@@ -1,26 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 .client-name {
-  font-family: 'Hurricane', cursive;
-  font-size: 50px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 45px;
   font-weight: lighter;
+  margin-bottom: 0;
+  margin-top: 45px;
+  padding-left: 5px;
 }
 
 .pharmacy-name {
-  font-family: 'lato', serif;
+  font-family: 'Nanum Myeongjo', serif;
   font-weight: lighter;
   margin-bottom: 50px;
   padding-left: 7px;
+  font-size: 20px;
 }
 
 .active {
-  font-family: 'lato', serif;
+  font-family: 'Nanum Myeongjo', serif;
   font-weight: lighter;
   padding-left: 7px;
   color: #E29578;
+  font-size: 20px;
 }
 
 .steps {
-  font-family: 'lato', serif;
+  font-family: "Lato", "Helvetica", "sans-serif";
   font-size: 20px;
 }
 
