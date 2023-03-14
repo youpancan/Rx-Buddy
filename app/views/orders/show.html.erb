@@ -6,21 +6,18 @@
     <% @order.refills.each do |refill| %>
       <div class="p-2 bg-light border p-3">
           <div class="d-flex flex-row">
-          <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
-          <span class='flex-grow-1 align-items-center'><%= refill.user_medication.medication.name %></span>
-          <% if refill.status == 'received' %>
-            <i class="status fa-solid fa-file-circle-plus"></i>
-          <% elsif refill.status == 'in process' %>
-            <i class="status fa-solid fa-gear"></i>
-          <% elsif refill.status == 'complete' %>
-            <i class="status fa-regular fa-circle-check"></i>
-          <% else %>
-          <p>Pending</p>
-          <% end %>
-        <%# </div>
-
-        <div> %>
-        </div>
+            <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
+            <span class='flex-grow-1 align-items-center'><%= refill.user_medication.medication.name %></span>
+            <% if refill.status == 'received' %>
+              <i class="status fa-solid fa-file-circle-plus"></i>
+            <% elsif refill.status == 'in_process' %>
+              <i class="status fa-solid fa-gear"></i>
+            <% elsif refill.status == 'complete' %>
+              <i class="status fa-regular fa-circle-check"></i>
+            <% else %>
+            <i class="status bi bi-dash-circle"></i>
+            <% end %>
+          </div>
       </div>
     <% end %>
   </div>
