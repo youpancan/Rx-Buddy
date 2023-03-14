@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   resources :user_medications, only: [] do
     resources :refills, only: %i[create update destroy]
   end
+  resources :chatbots, only: :show do
+    resources :messages, only: :create
+  end
 end

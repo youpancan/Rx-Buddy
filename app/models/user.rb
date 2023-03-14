@@ -21,6 +21,8 @@ class User < ApplicationRecord
   # validates :address, presence: true
   # validates :phone_number, presence: true
 
+  has_many :chatbots
+
   geocoded_by :pharmacy_location
   after_validation :geocode, if: :will_save_change_to_pharmacy_location?
 end

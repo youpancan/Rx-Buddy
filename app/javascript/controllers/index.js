@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChatbotSubscriptionController from "./chatbot_subscription_controller"
+application.register("chatbot-subscription", ChatbotSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
