@@ -13,5 +13,5 @@ application.register("map", MapController)
 import NoticeConfirmationController from "./notice_confirmation_controller"
 application.register("notice-confirmation", NoticeConfirmationController)
 
-import NotificationSubscriptionController from "./notification_subscription_controller"
-application.register("notification-subscription", NotificationSubscriptionController)
+import UserSubscriptionController from "./user_subscription_controller"
+application.register("user-subscription", UserSubscriptionController)
