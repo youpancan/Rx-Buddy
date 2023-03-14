@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Lato';
+  font-family: 'Libre Baskerville', serif;
 }
 
 h1 {
@@ -79,6 +79,7 @@ h1 {
   height: auto;
   overflow: hidden;
 }
+
 @media all {
   .accordionItem {
     max-height: 50em;

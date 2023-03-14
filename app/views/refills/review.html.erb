@@ -7,33 +7,34 @@
             <div class="p-2"> <%= image_tag "pill.png", class: 'pill-icon'  %></div>
             <div class="p-2"><%= refill.user_medication.medication.name %></div>
             <div class="ms-auto p-2">
-            <% if refill.urgent? %>
-              <i class=" urgent fa-solid fa-circle"></i>
-            <% elsif refill.medium? %>
-              <i class=" medium fa-solid fa-circle"></i>
-            <% else %>
-              <i class=" not-urgent fa-solid fa-circle"></i>
-            <% end %>
+              <% if refill.urgent? %>
+                <i class=" urgent fa-solid fa-circle"></i>
+              <% elsif refill.medium? %>
+                <i class=" medium fa-solid fa-circle"></i>
+              <% else %>
+                <i class=" not-urgent fa-solid fa-circle"></i>
+              <% end %>
             </div>
+            <div><i class="fa-regular fa-pen-to-square"></i></div>
           </button>
         </h2>
           <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <h3 class="d-flex justify-content-center">Edit</h3>
+              <%# <h3 class="d-flex justify-content-center">Edit</h3> %>
               <div class="dropdown">
                 <div class="dropdown d-flex justify-content-between">
                     <%# add the remove this order button %>
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      Urgency
-                    </button>
+                  <button class="urgency btn btn-secondary text-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Urgency
+                  </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class='align'><%= button_to "I need it today", user_medication_refill_path(refill.user_medication, refill, urgency: 'urgent'), method: :patch, class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
                     <div class='align'><%= button_to "I can wait 24hrs", user_medication_refill_path(refill.user_medication, refill, urgency: 'medium'), method: :patch, class: "dropdown-item" %><i class=" medium fa-solid fa-circle"></i></div>
                     <div class='align'><%= button_to "I can wait a week", user_medication_refill_path(refill.user_medication, refill, urgency: 'not_urgent'), method: :patch, class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
                   </div>
                   <div class="dropdown d-flex justify-content-end">
-                      <%= link_to user_medication_refill_path(refill.user_medication, refill), data: { turbo_method: :delete, turbo_confirm: 'Sure? ⚠️' }, class: 'text-secondary mt-2' do %>
-                        <i class="fa-solid fa-trash-can"></i>
+                      <%= link_to user_medication_refill_path(refill.user_medication, refill), data: { turbo_method: :delete, turbo_confirm: 'Sure? ⚠️' }, class: 'mt-2' do %>
+                        <i class="trash fa-solid fa-trash-can"></i>
                       <% end %>
                   </div>
                 </div>
@@ -44,8 +45,8 @@
     <% end %>
   </div>
   <div class='d-flex justify-content-between'>
-  <%= button_to "Send Order", orders_path, class:'btn btn-success mb-4'%>
-  <%= button_to "Cancel Order", remove_all_path, data: { turbo_confirm: 'Sure? ⚠️' }, method: :delete, class:'btn btn-danger mb-4'%>
+  <%= button_to "Send Order", orders_path, class:'btn btn-success mb-4 rounded'%>
+  <%= button_to "Cancel Order", remove_all_path, data: { turbo_confirm: 'Sure? ⚠️' }, method: :delete, class:'btn btn-danger mb-4 rounded'%>
   <%# add the delete whole order button %>
   </div>
 </div>

@@ -25,9 +25,7 @@
     </ul>
   </nav>
 
-
-
-  <h2 class="m-0 flex-grow-1 text-center"><%= link_to 'RX Buddy', dashboard_path, class:'text-decoration-none text-white'%></h2>
+  <img src="<%= image_path("rxnav.png") %>" alt="rx buddy" class="rx-buddy"/>
       <% if user_signed_in? %>
 
        <%= link_to chatbot_path(current_user.chatbots.first), class: "navbar-brand" do %>
