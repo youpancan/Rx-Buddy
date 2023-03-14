@@ -50,7 +50,6 @@ class RefillsController < ApplicationController
     @user = @refill.user_medication.user
     @order = @refill.order
     @sum = 0
-    @order_meds = []
     case params[:refill][:status].to_i
     when 0
       @refill.pending!
