@@ -1,6 +1,6 @@
 <div class='container mt-5'>
   <h1 class='m-0 pb-2'>Your Order Status</h1>
-  <h2 class='date mb-5'><%= @order.order_date %></h2>
+  <h2 class='order-date mb-5'><%= @order.order_date %></h2>
 
   <div class="d-grid gap-3">
     <% @order.refills.each do |refill| %>
