@@ -29,6 +29,28 @@
       <% if user_signed_in? %>
 
         <div class="nav-item dropdown">
+
+            <div data-controller="user-subscription"
+                  data-user-subscription-user-id-value="<%= current_user.id %>">
+            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-bell" id="bell"></i>
+              <i class="urgent fa-solid fa-circle fa-xs d-none"
+                 data-user-subscription-target="icon"
+                 id="red-dot">
+              </i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li data-user-subscription-target="messages">No notification</li>
+              <li><button class="d-none"  data-user-subscription-target="clearButton" data-action="click->user-subscription#clear">Clear</button></li>
+            </ul>
+          </div>
+
+
+         </div>
+
+        <div class="nav-item dropdown">
+
+         &nbsp;&nbsp;&nbsp;&nbsp;
           <%= image_tag "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to "Personal Information", dashboard_show_path, class: "dropdown-item" %>
