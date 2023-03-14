@@ -27,11 +27,12 @@
 
 
 
-
-
   <h2 class="m-0 flex-grow-1 text-center"><%= link_to 'RX Buddy', dashboard_path, class:'text-decoration-none text-white'%></h2>
-
       <% if user_signed_in? %>
+
+       <%= link_to chatbot_path(current_user.chatbots.first), class: "navbar-brand" do %>
+            <i class="fa-regular fa-comment chat-icon"></i>
+        <% end %>
 
         <div class="nav-item dropdown">
 
