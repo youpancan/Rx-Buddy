@@ -15,7 +15,7 @@ export default class extends Controller {
                     }}
 
                   )
-    console.log(this.userIdValue)
+    // console.log(this.userIdValue)
   }
 
   disconnect() {

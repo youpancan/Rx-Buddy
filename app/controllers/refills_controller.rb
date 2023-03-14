@@ -48,40 +48,35 @@ class RefillsController < ApplicationController
   def pharmacy_update
     @refill = Refill.find(params[:id])
     @user = @refill.user_medication.user
+    @order = @refill.order
+    @sum = 0
+    @order_meds = []
     case params[:refill][:status].to_i
     when 0
       @refill.pending!
-      # redirect_to order_path(@refill.order)
     when 1
       @refill.received!
-      # redirect_to order_path(@refill.order)
     when 2
       @refill.in_process!
+      # broadcast and redirect can not operate at the same time
       # redirect_to order_path(@refill.order)
     when 3
       @refill.complete!
+      @sum += 1
       @message = ""
       @message = "your #{@refill.user_medication.medication.name} is ready for pick up!"
-      @notification = Notification.new(refill: @refill, message: @message)
-
-      if @notification.save
-
-        UserChannel.broadcast_to(
-          @user,
-          @notification.message
-
-        )
-        head :ok
-      else
-        raise
-      end
-      # @sum = 0
-      # @order_meds = []
-      # @sum += 1
-      # @order_meds.push(refill.user_medication.medication.name)
-      # <%= "your order is ready to pick up! " if @sum == order.refills.count %>
     end
-    # redirect_to order_path(@refill.order)
+    if @sum == @order.refills.count
+       @message = "your order is ready to pick up! "
+    end
+    @notification = Notification.new(refill: @refill, message: @message)
+    if @notification.save
+      UserChannel.broadcast_to(
+        @user,
+        @notification.message
+      )
+      head :ok
+    end
   end
 
   private
