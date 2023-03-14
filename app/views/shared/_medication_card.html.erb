@@ -21,7 +21,11 @@
             <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
             <p>You have <strong><%= pluralize active_med.number_refills, 'refill' %></strong> left</p>
             <p>Refill Due Date: <%= active_med.refill_due_date %></p>
-            <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <% if (active_med.refill_due_date - Date.today).positive? %>
+              <p class="text-info"><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <% else %>
+              <p class="text-danger"> Refill was due <strong><%= pluralize (Date.today - active_med.refill_due_date).to_i, 'day' %></strong> ago</p>
+            <% end %>
             <div class="dropdown">
               <% if active_med.can_refill? %>
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,7 +50,11 @@
             <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
             <p>You have <strong><%= pluralize active_med.number_refills, 'refill' %></strong> left</p>
             <p>Refill Due Date: <strong><%= active_med.refill_due_date %></strong></p>
-            <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <% if (active_med.refill_due_date - Date.today).positive? %>
+              <p class="text-info"><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <% else %>
+              <p class="text-danger"> Refill was due <strong><%= pluralize (Date.today - active_med.refill_due_date).to_i, 'day' %></strong> ago</p>
+            <% end %>
             <div class='steps border-top d-flex flex-row py-4'>
               <p class='mb-0'>Steps until pickup:</p>
               <% if active_med.refills.last.status == 'received' %>
@@ -91,7 +99,11 @@
             <p>Prescribed by <strong><%= active_med.prescriber%></strong></p>
             <p>You have <strong><%= pluralize active_med.number_refills, 'refill' %></strong> left</p>
             <p>Refill Due Date: <%= active_med.refill_due_date %></p>
-            <p><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <% if (active_med.refill_due_date - Date.today).positive? %>
+              <p class="text-info"><strong><%= pluralize (active_med.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <% else %>
+              <p class="text-danger"> Refill was due <strong><%= pluralize (Date.today - active_med.refill_due_date).to_i, 'day' %></strong> ago</p>
+            <% end %>
             <div class="dropdown">
               <% if active_med.can_refill? %>
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

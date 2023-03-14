@@ -5,6 +5,6 @@ class UserMedication < ApplicationRecord
   has_many :no_order_refills, -> { where order_id: nil }, class_name: 'Refill'
 
   def can_refill?
-    number_refills.size.positive? && refill_due_date >= Date.today
+    number_refills.positive? && (refill_due_date - 5) <= Date.today
   end
 end
