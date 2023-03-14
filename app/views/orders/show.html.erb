@@ -4,10 +4,10 @@
 
   <div class="d-grid gap-3">
     <% @order.refills.each do |refill| %>
-      <div class="p-2 bg-light border p-3">
+      <div class="p-2 bg-light border rounded p-3">
           <div class="d-flex flex-row">
             <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
-            <span class='flex-grow-1 align-items-center'><%= refill.user_medication.medication.name %></span>
+            <div class='flex-grow-1 align-items-center'><%= refill.user_medication.medication.name %></div>
             <% if refill.status == 'received' %>
               <i class="status fa-solid fa-file-circle-plus"></i>
             <% elsif refill.status == 'in_process' %>
