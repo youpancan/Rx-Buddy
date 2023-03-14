@@ -66,9 +66,7 @@ class RefillsController < ApplicationController
       @message = ""
       @message = "your #{@refill.user_medication.medication.name} is ready for pick up!"
     end
-    if @sum == @order.refills.count
-       @message = "your order is ready to pick up! "
-    end
+    @message = "your order is ready to pick up! " if @sum == @order.refills.count
     @notification = Notification.new(refill: @refill, message: @message)
     if @notification.save
       UserChannel.broadcast_to(
