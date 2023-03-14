@@ -10,7 +10,10 @@ class MessagesController < ApplicationController
       )
       head :ok
 
-      ChatbotAnswerJob.set(wait: 1.second).perform_later(@chatbot, @message)
+      sleep 1
+      ChatbotAnswerJob.perform_now(@chatbot, @message)
+
+      # ChatbotAnswerJob.set(wait: 1.second).perform_later(@chatbot, @message)
 
       # redirect_to chatbot_path(@chatbot)
     else
