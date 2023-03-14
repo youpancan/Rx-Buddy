@@ -16,8 +16,11 @@ Rails.application.routes.draw do
   resources :refills, only: %i[create update destroy]
   end
   resources :chatbots, only: :show do
-  resources :messages, only: :create
+    resources :messages, only: :create
   end
   get '/pharmacy/refills/:id/edit', to: 'refills#pharmacy_edit', as: :pharmacy_refill_edit
   patch '/pharmacy/refills/:id', to: 'refills#pharmacy_update', as: :pharmacy_refill_update
+
+  # require "sidekiq/web"
+  # mount Sidekiq::Web => '/sidekiq'
 end
