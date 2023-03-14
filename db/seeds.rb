@@ -1,4 +1,6 @@
 puts "cleaning up the database"
+Message.destroy_all
+Chatbot.destroy_all
 Refill.destroy_all
 Order.destroy_all
 UserMedication.destroy_all
@@ -60,6 +62,7 @@ Refill.create!(urgency: 2, status: 2, user_medication: user_amoxicillin,
 Refill.create!(urgency: 1, status: 2, user_medication: user_cipralex,
                               order: order_three, notes: 'no comment', pick_up_date: Date.new(2023, 3, 2))
 
+Chatbot.create!(user: user_one)
 
 
 
@@ -159,6 +162,8 @@ Refill.create!(urgency: 1, status: 4, user_medication: sarah_omeprazole,
                                      order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 5, 5))
 Refill.create!(urgency: 0, status: 4, user_medication: sarah_metformin,
                                        order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 5, 5))
+
+Chatbot.create!(user: sarah)
 
 # END OF MAIN USER FOR DEMO SCENARIO
 # enums for refill status

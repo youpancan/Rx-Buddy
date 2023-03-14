@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_200731) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_213721) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,12 +20,29 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_200731) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chatbots", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chatbots_on_user_id"
+  end
+
   create_table "medications", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "strength"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatbot_id", null: false
+    t.boolean "from_chatbot", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatbot_id"], name: "index_messages_on_chatbot_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -100,6 +117,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_200731) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chatbots", "users"
+  add_foreign_key "messages", "chatbots"
   add_foreign_key "notifications", "refills"
   add_foreign_key "orders", "users"
   add_foreign_key "refills", "orders"

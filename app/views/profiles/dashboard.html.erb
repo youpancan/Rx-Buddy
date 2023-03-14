@@ -1,5 +1,5 @@
 <div class = "line">
-  <div class='container mt-4'>
+  <div class='container mt-2'>
     <h3 class='client-name'><%= current_user.first_name %> <%= current_user.last_name %></h3>
     <%# <div class="container"> %>
     <h4 class='pharmacy-name'>Saamy Pharmacy</h4>
@@ -12,7 +12,7 @@
       <%= link_to "Review Order", review_path, class:'btn btn-primary mb-4' %>
     <% end %>
 
-    <div class= "mapid" style="width: 100%; height: 600px; border:solid; border-color:#E29578; margin-top: 3s;"
+    <div class= "mapid mb-4" style="width: 100%; height: 600px; border:solid; border-color:#E29578; margin-top: 3s;"
         data-controller="map"
         data-map-marker-value="<%= @marker.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

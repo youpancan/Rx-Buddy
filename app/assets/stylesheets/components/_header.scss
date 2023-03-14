@@ -1,0 +1,26 @@
+.masthead {
+  background-color: var(--color-primary);
+}
+.masthead .wave1 {
+  transform: translateX(-20px);
+  animation: wave 3s 0s ease infinite;
+}
+.masthead .wave2 {
+  transform: translateX(20px);
+  animation: wave 5s 0s ease infinite;
+}
+.masthead .wave3 {
+  transform: translateX(20px);
+  animation: wave 8s 0s ease infinite;
+}
+@keyframes wave {
+  0% {
+    transform: translateX(-20px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
