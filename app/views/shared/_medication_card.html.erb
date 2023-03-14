@@ -31,10 +31,6 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Refill
                 </button>
-              <% else %>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
-                  Refill
-                </button>
               <% end %>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <div class='align'><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'urgent'), class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
@@ -80,10 +76,6 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Refill
                 </button>
-              <% else %>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
-                  Refill
-                </button>
               <% end %>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <div class='align'><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'urgent'), class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
@@ -107,10 +99,6 @@
             <div class="dropdown">
               <% if active_med.can_refill? %>
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Refill
-                </button>
-              <% else %>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
                   Refill
                 </button>
               <% end %>
