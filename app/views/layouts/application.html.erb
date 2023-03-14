@@ -5,16 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
-      <title>RX Buddy</title>
-        <link rel="icon" type="image/x-icon" href="<%= image_path("pill.png") %>" />
-         <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
-         <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+     <link rel="icon" type="image/x-icon" href="<%= image_path("pill_red.png") %>" />
+     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
         <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
- <!-- Google fonts-->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+     <title><%= meta_title %></title>
+     <meta name="description" content="<%= meta_description %>">
+
+     <!-- Facebook Open Graph data -->
+      <meta property="og:title" content="<%= meta_title %>">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="<%= request.original_url %>">
+      <meta property="og:image" content="<%= meta_image %>">
+      <meta property="og:description" content="<%= meta_description %>">
+      <meta property="og:site_name" content="<%= meta_title %>">
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+        <meta name="twitter:title" content="<%= meta_title %>">
+        <meta name="twitter:description" content="<%= meta_description %>">
+        <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+        <meta name="twitter:image:src" content="<%= meta_image %>">
+
 
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>

@@ -15,3 +15,6 @@ application.register("notice-confirmation", NoticeConfirmationController)
 
 import UserSubscriptionController from "./user_subscription_controller"
 application.register("user-subscription", UserSubscriptionController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)

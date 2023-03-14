@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 .client-name {
   font-family: 'Hurricane', cursive;
   font-size: 50px;
@@ -5,28 +6,28 @@
 }
 
 .pharmacy-name {
-  font-family: 'Noto Serif Lao', serif;
+  font-family: 'lato', serif;
   font-weight: lighter;
   margin-bottom: 50px;
   padding-left: 7px;
 }
 
 .active {
-  font-family: 'Noto Serif Lao', serif;
+  font-family: 'lato', serif;
   font-weight: lighter;
   padding-left: 7px;
   color: #E29578;
 }
 
 .steps {
-  font-family: 'Noto Serif Lao', serif;
+  font-family: 'lato', serif;
   font-size: 20px;
 }
 
 .line {
-  background-image: url(assets/line.png);
+  background-image: asset-url("line.png");
   background-size: contain;
-  background-position: top;
+  background-position: top 50px left;
   background-repeat: no-repeat
 }
 

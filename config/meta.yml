@@ -1,0 +1,5 @@
+meta_name: "Pharmacy name"
+meta_title: "Rx Buddy - Efficiently Manage your Script"
+meta_description: "A web platform that actively tracks the status of your prescriptions"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@your_twitter_account"   # required for Twitter Cards
