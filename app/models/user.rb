@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :user_allergies
   has_many :allergies, through: :user_allergies
   has_many :refills, through: :user_medications
+  has_many :medications, through: :user_medications
 
   # Multiple has_many :through--start
   has_many :orders
@@ -26,4 +27,15 @@ class User < ApplicationRecord
 
   geocoded_by :pharmacy_location
   after_validation :geocode, if: :will_save_change_to_pharmacy_location?
+
+  def check_for_contraindications
+    allergies.each do |allergy|
+      medications.each do |med|
+        if med.ingredients.split.include?(allergy.allergy_type)
+          return med
+        end
+      end
+    end
+    return nil
+  end
 end
