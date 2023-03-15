@@ -1,4 +1,4 @@
-<div class='container mt-5 pt-4'>
+<div class='container mt-5'>
   <h1>Prescription History</h1>
 
   <div class="accordion" id="accordionExample">
@@ -18,9 +18,15 @@
         <div id="collapse<%= index %>" class="accordion-collapse collapse" aria-labelledby="heading<%= index %>" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <p>Prescribed by <strong><%= user_medication.prescriber%></strong></p>
-            <p>You have <strong><%= pluralize user_medication.number_refills.size, 'refill' %></strong> left</p>
+            <p>You have <strong><%= pluralize user_medication.number_refills, 'refill' %></strong> left</p>
             <p>Refill Due Date: <%= user_medication.refill_due_date %></p>
-            <p><strong><%= pluralize (user_medication.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+            <% unless user_medication.number_refills == 0 %>
+              <% if (user_medication.refill_due_date - Date.today).positive? %>
+                <p class="text-info"><strong><%= pluralize (user_medication.refill_due_date - Date.today).to_i, 'day' %></strong> until your next refill</p>
+              <% else (user_medication.refill_due_date - Date.today).negative? %>
+                <p class="text-danger"> Refill was due <strong><%= pluralize (Date.today - user_medication.refill_due_date).to_i, 'day' %></strong> ago</p>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>

@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   delete '/delete_refills', to: 'refills#remove_all', as: :remove_all
   resources :orders, only: %i[create show index]
   resources :user_medications, only: [] do
-  resources :refills, only: %i[create update destroy]
+    resources :refills, only: %i[create update destroy]
   end
-  resources :chatbots, only: :show do
-  resources :messages, only: :create
+  resources :chatbots, only: %i[show create] do
+    resources :messages, only: :create
   end
   get '/pharmacy/refills/:id/edit', to: 'refills#pharmacy_edit', as: :pharmacy_refill_edit
   patch '/pharmacy/refills/:id', to: 'refills#pharmacy_update', as: :pharmacy_refill_update
+
+  # require "sidekiq/web"
+  # mount Sidekiq::Web => '/sidekiq'
 end

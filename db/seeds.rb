@@ -163,5 +163,7 @@ Refill.create!(urgency: 1, status: 4, user_medication: sarah_omeprazole,
 Refill.create!(urgency: 0, status: 4, user_medication: sarah_metformin,
                                        order: sarah_order_four, notes: 'no comment', pick_up_date: Date.new(2023, 5, 5))
 
+Chatbot.create!(user: sarah)
+
 # END OF MAIN USER FOR DEMO SCENARIO
 # enums for refill status

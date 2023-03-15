@@ -1,4 +1,4 @@
-:concurrency: 1
+:concurrency: 3
 :timeout: 15
 :verbose: true
 :queues:
