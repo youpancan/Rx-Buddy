@@ -1,0 +1,116 @@
+$bgColor: #006D77;
+$textHoverColor: white;
+$debug: false;
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	min-height: 100vh;
+}
+
+#special {
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	overflow: if($debug, unset, hidden);
+
+	text-decoration: none;
+
+	font-family: sans-serif;
+	font-weight: 600;
+	font-size: 1.25em;
+
+	padding: 0.75em 1em;
+
+	color: $bgColor;
+
+	border: 0.15em solid $bgColor;
+	border-radius: calc(0.75em + 0.5em + 0.15em);
+
+	// transition: 4s;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: -1.5em;
+
+		z-index: -1;
+
+		width: 200%;
+		aspect-ratio: 1;
+
+		border: if($debug, inherit, none);
+		border-radius: 40%;
+
+		background-color: rgba($bgColor, 0.25);
+
+		// transition: 4s;
+	}
+
+  animation: button_wave 8s 0s ease infinite;
+
+	&:before {
+		left: -80%;
+		transform: translate3d(0, 5em, 0) rotate(-340deg);
+    animation: wave1 8s 0s ease infinite;
+	}
+
+	&:after {
+		right: -80%;
+		transform: translate3d(0, 5em, 0) rotate(390deg);
+    animation: wave2 8s 0s ease infinite;
+	}
+
+	// &:hover,
+	// &:focus {
+	// 	color: $textHoverColor;
+
+	// 	&:before,
+	// 	&:after {
+	// 		transform: none;
+	// 		background-color: rgba($bgColor, 0.75);
+	// 	}
+	// }
+}
+
+@keyframes button_wave {
+  0% {
+    color: $bgColor;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: $bgColor
+  }
+}
+@keyframes wave1 {
+  0% {
+    transform: translate3d(0, 5em, 0) rotate(-340deg);
+    background-color: rgba($bgColor, 0.25);
+  }
+  50% {
+    transform: none;
+    background-color: rgba($bgColor, 0.75);
+  }
+  100% {
+    transform: translate3d(0, 5em, 0) rotate(-340deg);
+    background-color: rgba($bgColor, 0.25);
+  }
+}
+@keyframes wave2 {
+  0% {
+    transform: translate3d(0, 5em, 0) rotate(390deg);
+    background-color: rgba($bgColor, 0.25);
+  }
+  50% {
+    transform: none;
+    background-color: rgba($bgColor, 0.75);
+  }
+  100% {
+    transform: translate3d(0, 5em, 0) rotate(390deg);
+    background-color: rgba($bgColor, 0.25);
+  }
+}
