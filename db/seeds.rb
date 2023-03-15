@@ -1,4 +1,5 @@
 puts "cleaning up the database"
+Notification.destroy_all
 Message.destroy_all
 Chatbot.destroy_all
 Refill.destroy_all
@@ -27,12 +28,19 @@ end
 
 # creating medications
 puts "creating medications"
-alesse = Medication.create!(name: "Alesse", description: "Birth-Control", strength: '28')
-amoxicillin = Medication.create!(name: "Amoxicillin", description: "Antibiotics", strength: '500mg')
-cipralex = Medication.create!(name: "Cipralex", description: "Anti-depressant", strength: '20 mg')
-lexapro = Medication.create!(name: "Lexapro", description: "Anti-Depressant", strength: '20 mg')
-adderall = Medication.create!(name: "Adderall", description: "ADHD", strength: '40mg')
-omeprazole = Medication.create!(name: "Omeprazole", description: "Acid-Reflux", strength: '10mg')
+alesse = Medication.create!(name: "Alesse", description: "Birth-Control", strength: '28',
+                            ingredients: 'levonorgestrel, ethinylestradiol, microcrystalline cellulose')
+amoxicillin = Medication.create!(name: "Amoxicillin", description: "Antibiotics", strength: '500mg',
+                                 ingredients: 'Amoxicillin, Gelatin, Sodium Lauryl Sulfate, Titanium Dioxide')
+celexa = Medication.create!(name: "Celexa", description: "Anti-depressant", strength: '20 mg',
+                            ingredients: 'citalopram, copolyvidone, crosscarmellose sodium, glycerin, lactose')
+lexapro = Medication.create!(name: "Lexapro", description: "Anti-Depressant", strength: '20 mg',
+                             ingredients: 'escitalopram, microcrystalline cellulose, colloidal anhydrous silica')
+adderall = Medication.create!(name: "Adderall", description: "ADHD", strength: '40mg',
+                              ingredients: 'dextroamphetamine saccharate, amphetamine aspartate, amphetamine')
+omeprazole = Medication.create!(name: "Omeprazole", description: "Acid-Reflux", strength: '10mg',
+                                ingredients: 'omeprazole, lactose, cellulose, disodium hydrogen phosphate, hydroxypropyl
+                                cellulose, hypromellose')
 metformin = Medication.create!(name: "Metformin", description: "Diabetes", strength: '500mg')
 cetirizine = Medication.create!(name: "Cetirizine", description: "Allergies", strength: '20mg')
 epipen = Medication.create!(name: "EpiPen", description: "Allergies", strength: '0.3mg')
@@ -46,7 +54,7 @@ user_alesse = UserMedication.create!(medication: alesse, user: user_two, number_
 user_amoxicillin = UserMedication.create!(medication: amoxicillin, user: user_two, number_refills: 3,
                                           refill_due_date: Date.new(2023, 3, 17),
                                           prescriber: 'Dr. May', refillable: false)
-user_cipralex = UserMedication.create!(medication: cipralex, user: user_three, number_refills: 3,
+user_celexa = UserMedication.create!(medication: celexa, user: user_three, number_refills: 3,
                                        refill_due_date: Date.new(2023, 4, 9),
                                        prescriber: 'Dr. May', refillable: false)
 puts "creating orders"
@@ -59,7 +67,7 @@ Refill.create!(urgency: 1, status: 1, user_medication: user_alesse,
                             order: order_one, notes: 'no comment', pick_up_date: Date.new(2023, 3, 7))
 Refill.create!(urgency: 2, status: 2, user_medication: user_amoxicillin,
                             order: order_two, notes: 'no comment', pick_up_date: Date.new(2023, 3, 5))
-Refill.create!(urgency: 1, status: 2, user_medication: user_cipralex,
+Refill.create!(urgency: 1, status: 2, user_medication: user_celexa,
                               order: order_three, notes: 'no comment', pick_up_date: Date.new(2023, 3, 2))
 
 Chatbot.create!(user: user_one)
