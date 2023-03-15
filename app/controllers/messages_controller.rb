@@ -1,12 +1,14 @@
 class MessagesController < ApplicationController
   def create
+    puts "create"
     @chatbot = Chatbot.find(params[:chatbot_id])
     @message = Message.new(message_params)
     @message.chatbot = @chatbot
     if @message.save
       ChatbotChannel.broadcast_to(
         @chatbot,
-        render_to_string(partial: "message", locals: { message: @message })
+        message: render_to_string(partial: "message", locals: { message: @message }),
+        sender_id: current_user.id
       )
       head :ok
 

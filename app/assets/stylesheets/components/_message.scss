@@ -14,9 +14,19 @@
 }
 
 .sender-style {
-  background-color: lightcoral;
+  background-color: #83C5BE;
 }
 
 .receiver-style {
-  background-color: lightblue;
+  background-color: #e29478d5;
+}
+
+#animation {
+  animation: color-change 4s infinite;
+}
+
+@keyframes color-change {
+  20% { color: blue; }
+  50% { color: red; }
+  30% { color: green;}
 }
