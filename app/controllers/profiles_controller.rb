@@ -26,9 +26,20 @@ class ProfilesController < ApplicationController
 
   def dashboard
     @active_meds = []
+    @allergic_meds = []
+    @allergies = current_user.allergies
+    @medications = current_user.medications
     # @user_pharmacy_location = current_user.pharmacy_location
     current_user.user_medications.each do |medication|
       @active_meds.push(medication) if medication.number_refills.positive?
+    end
+
+    @allergies.each do |allergy|
+      @medications.each do |med|
+        if med.ingredients.split.include?(allergy.allergy_type)
+          @allergic_meds << med
+        end
+      end
     end
 
     @marker = {

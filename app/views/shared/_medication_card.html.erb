@@ -26,6 +26,9 @@
             <% else %>
               <p class="text-danger"> Refill was due <strong><%= pluralize (Date.today - active_med.refill_due_date).to_i, 'day' %></strong> ago</p>
             <% end %>
+
+            <%= render "shared/allergy", allergic_meds: allergic_meds, active_med: active_med %>
+
             <div class="dropdown">
               <% if active_med.can_refill? %>
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,6 +54,9 @@
             <% else %>
               <p class="text-danger"> Refill was due <strong><%= pluralize (Date.today - active_med.refill_due_date).to_i, 'day' %></strong> ago</p>
             <% end %>
+
+            <%= render "shared/allergy", allergic_meds: allergic_meds, active_med: active_med %>
+
             <div class='steps border-top d-flex flex-row py-4'>
               <p class='mb-0'>Steps until pickup:</p>
               <% if active_med.refills.last.received? %>
@@ -102,6 +108,9 @@
                   Refill
                 </button>
               <% end %>
+
+              <%= render "shared/allergy", allergic_meds: allergic_meds, active_med: active_med %>
+
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <div class='align'><%= button_to "I need it today", user_medication_refills_path(active_med, urgency: 'urgent'), class: "dropdown-item" %><i class=" urgent fa-solid fa-circle"></i></div>
                 <div class='align'><%= button_to "I can wait 24 hrs", user_medication_refills_path(active_med, urgency: 'medium'), class: "dropdown-item" %><i class=" medium fa-solid fa-circle"></i></div>
