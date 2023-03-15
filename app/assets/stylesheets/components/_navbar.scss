@@ -1,7 +1,10 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  justify-content: flex-start;
   background: #006D77;
+}
 
+.dropdown-item {
+  justify-content: flex-end;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,10 +15,11 @@
   width: 40px;
 }
 
-.rx-buddy {
-  width: auto;
-  height: 16px;
-
+.rxbuddy {
+  color: white;
+  margin-left: 60px;
+  font-size: 25px;
+  text-decoration: none;
 }
 
 // @import url('https://fonts.googleapis.com/css?family=Merriweather:900&display=swap');
@@ -229,12 +233,4 @@ h1 {
 @keyframes link-appear {
   0%, 25%   { transform: translateY(100%); }
   50%, 100% { transform: translateY(0); }
-}
-
-.title-white {
-  a{
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-  }
 }
