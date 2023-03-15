@@ -27,15 +27,6 @@
 
   <img src="<%= image_path("rxnav.png") %>" alt="rx buddy" class="rx-buddy"/>
       <% if user_signed_in? %>
-        <% if current_user.chatbots.empty? %>
-          <%= link_to chatbots_path, data: { turbo_method: :post }, class: "navbar-brand" do %>
-            <i class="fa-regular fa-comment chat-icon"></i>
-          <% end %>
-        <% else %>
-          <%= link_to chatbot_path(current_user.chatbots.last), class: "navbar-brand" do %>
-            <i class="fa-regular fa-comment chat-icon"></i>
-          <% end %>
-        <% end %>
         <div class="nav-item dropdown">
 
             <div data-controller="user-subscription"

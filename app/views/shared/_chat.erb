@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <% if current_user.chatbots.empty? %>
+    <%= link_to chatbots_path, data: { turbo_method: :post }, class: "navbar-brand" do %>
+      <div class='chat-circle'>
+        <i class="fa-regular fa-comment chat-icon"></i>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to chatbot_path(current_user.chatbots.last), class: "navbar-brand" do %>
+      <div class='chat-circle'>
+        <i class="fa-regular fa-comment chat-icon"></i>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
