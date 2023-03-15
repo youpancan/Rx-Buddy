@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #006D77;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -228,4 +229,12 @@ h1 {
 @keyframes link-appear {
   0%, 25%   { transform: translateY(100%); }
   50%, 100% { transform: translateY(0); }
+}
+
+.title-white {
+  a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+  }
 }
