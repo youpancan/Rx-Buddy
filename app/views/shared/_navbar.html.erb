@@ -25,7 +25,8 @@
     </ul>
   </nav>
 
-    <div class="display title-white mb-0">Rx Buddy</div>
+
+    <div class="mb-0 title-white"><%= link_to "Rx Buddy", dashboard_path %></div>
 
       <% if user_signed_in? %>
         <% if current_user.chatbots.empty? %>
