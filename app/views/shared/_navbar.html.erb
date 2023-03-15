@@ -25,7 +25,8 @@
     </ul>
   </nav>
 
-  <img src="<%= image_path("rxnav.png") %>" alt="rx buddy" class="rx-buddy"/>
+    <div class="display title-white mb-0">Rx Buddy</div>
+
       <% if user_signed_in? %>
         <% if current_user.chatbots.empty? %>
           <%= link_to chatbots_path, data: { turbo_method: :post }, class: "navbar-brand" do %>
