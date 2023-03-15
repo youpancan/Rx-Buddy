@@ -12,10 +12,11 @@ class ProfilesController < ApplicationController
       # check if there are contraindications
       # current_user.check_for_contraaa
       # if statement you do have contrai-indicaitons redierect and show an alert
-        if current_user.check_for_contraindications.nil?
+        @contraindications = current_user.check_for_contraindications
+        if @contraindications.nil?
           redirect_to dashboard_show_path
         else
-          flash[:notice] = "You are allergic to please consult your health care provider!"
+          flash[:alert] = "You are allergic to #{@contraindications.name} please consult your health care provider!"
           redirect_to dashboard_show_path
         end
     else
