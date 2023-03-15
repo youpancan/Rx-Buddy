@@ -33,11 +33,11 @@ alesse = Medication.create!(name: "Alesse", description: "Birth-Control", streng
 amoxicillin = Medication.create!(name: "Amoxicillin", description: "Antibiotics", strength: '500mg',
                                  ingredients: 'Amoxicillin, Gelatin, Sodium Lauryl Sulfate, Titanium Dioxide')
 celexa = Medication.create!(name: "Celexa", description: "Anti-depressant", strength: '20 mg',
-                            ingredients: 'citalopram, copolyvidone, crosscarmellose sodium, glycerin, lactose')
+                            ingredients: 'citalopram, copolyvidone, crosscarmellose sodium, glycerin')
 lexapro = Medication.create!(name: "Lexapro", description: "Anti-Depressant", strength: '20 mg',
-                             ingredients: 'escitalopram, microcrystalline cellulose, colloidal anhydrous silica')
+                             ingredients: 'escitalopram, microcrystalline cellulose')
 adderall = Medication.create!(name: "Adderall", description: "ADHD", strength: '40mg',
-                              ingredients: 'dextroamphetamine saccharate, amphetamine aspartate, amphetamine')
+                              ingredients: 'dextroamphetamine saccharate, amphetamine aspartate, lactose')
 omeprazole = Medication.create!(name: "Omeprazole", description: "Acid-Reflux", strength: '10mg',
                                 ingredients: 'omeprazole, lactose, cellulose, disodium hydrogen phosphate, hydroxypropyl
                                 cellulose, hypromellose')
