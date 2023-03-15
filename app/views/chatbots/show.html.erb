@@ -2,10 +2,23 @@
 <div class="container chatbot"
   data-controller="chatbot-subscription"
   data-chatbot-subscription-chatbot-id-value="<%= @chatbot.id %>"
+  data-chatbot-subscription-current-user-id-value="<%= current_user.id %>"
 >
+
+
+
+<div class="d-flex flex-column align-items-start">
+  <h6 class="typewriter">Hi I'm <span id = "animation"> JOI</span>, your virtual pharmaceutical assistant.
+  <h6 class="typewriter animated">What seems to be the problem <%= @user.first_name %>? </h6>
+</div>
+
   <div class="messages" data-chatbot-subscription-target="messages">
     <% @chatbot.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <div class="message-row d-flex <%= message.from_chatbot ? 'justify-content-start' : 'justify-content-end' %>">
+        <div class="<%= message.from_chatbot ? 'receiver-style' : 'sender-style' %>">
+          <%= render "messages/message", message: message %>
+        </div>
+      </div>
     <% end %>
   </div>
   <%= simple_form_for [@chatbot, @message], html: { data: { action: "turbo:submit-end->chatbot-subscription#resetForm" }, class: "d-flex" } do |f| %>
@@ -14,6 +27,5 @@
                 placeholder: "Message ##{@chatbot.name}",
                 wrapper_html: {class: "flex-grow-1"} %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-
   <% end %>
 </div>

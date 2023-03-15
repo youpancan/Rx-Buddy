@@ -1,6 +1,10 @@
 <div id="message-<%= message.id %>">
   <small>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    <% if message.from_chatbot %>
+      <em id = "animation">JOI</em>
+    <% else %>
+      <em><%= current_user.first_name %></em>
+    <% end %>
   </small>
   <p><%= message.content %></p>
 </div>

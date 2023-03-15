@@ -1,0 +1,32 @@
+// To style the wrapping div
+.message-row {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+// To style the message itself
+.sender-style, .receiver-style {
+  width: 70%;
+  max-width: 400px;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 80px;
+}
+
+.sender-style {
+  background-color: #83C5BE;
+}
+
+.receiver-style {
+  background-color: #e29478d5;
+}
+
+#animation {
+  animation: color-change 4s infinite;
+}
+
+@keyframes color-change {
+  20% { color: blue; }
+  50% { color: red; }
+  30% { color: green;}
+}
