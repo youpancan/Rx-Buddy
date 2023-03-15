@@ -24,7 +24,7 @@ export default class extends Controller {
   }
 
   clear() {
-    this.messagesTarget.innerText = 'No notification'
+    this.messagesTarget.innerText = 'No new notifications'
     this.iconTarget.classList.add("d-none")
     this.clearButtonTarget.classList.add("d-none")
   }

@@ -1,5 +1,6 @@
 #bell {
   position: relative;
+  font-size: 22px;
 }
 
 #red-dot {
@@ -8,22 +9,36 @@
   font-size: 8px;
 }
 
+.bell-af {
+  display: flex;
+  justify-content: end;
+}
+
 .bell-af::after {
   display: none;
 }
 
 .dropdown-menu-end {
-  border:solid;
-  border-radius: 25px 10px;
+  border: solid .5px #EDF6F9;
+  // border-radius: 25px 10px;
+  border-radius: 10px;
   min-height: 50px;
+  background-color: #ffddd2a8;
+  padding: 10px;
 }
 
 .noti-message {
-  margin-top: 5px;
-  margin-left: 10px;
-  margin-bottom: 3px;
+  display: flex;
+  margin: 15px;
+  text-align: center;
+  align-items: center;
 }
 
 .noti-button {
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  color: black;
+  font-size: 20px;
+  align-items: end;
+  padding: 0px;
 }

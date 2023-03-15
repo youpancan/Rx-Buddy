@@ -14,7 +14,7 @@ namespace :rx do
     refill = Order.last.refills.last
     refill.complete!
     user = refill.user_medication.user
-    message = "your #{refill.user_medication.medication.name} is ready for pick up!"
+    message = "Your #{refill.user_medication.medication.name} is ready for pick up!"
     notification = Notification.new(refill: refill, message: message)
     if notification.save!
       UserChannel.broadcast_to(
