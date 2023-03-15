@@ -25,51 +25,41 @@
     </ul>
   </nav>
 
-    <div class="display title-white mb-0">Rx Buddy</div>
 
-      <% if user_signed_in? %>
-        <% if current_user.chatbots.empty? %>
-          <%= link_to chatbots_path, data: { turbo_method: :post }, class: "navbar-brand" do %>
-            <i class="fa-regular fa-comment chat-icon"></i>
-          <% end %>
-        <% else %>
-          <%= link_to chatbot_path(current_user.chatbots.last), class: "navbar-brand" do %>
-            <i class="fa-regular fa-comment chat-icon"></i>
-          <% end %>
-        <% end %>
-        <div class="nav-item dropdown">
+  <div class="mb-0 title-white"><%= link_to "Rx Buddy", dashboard_path %></div>
 
-            <div data-controller="user-subscription"
-                  data-user-subscription-user-id-value="<%= current_user.id %>">
-            <button class="dropdown-toggle border-0 bell-af" type="button" data-bs-toggle="dropdown" aria-expanded="false" style=" background-color:transparent">
-              <i class="text-white bi bi-bell" id="bell"></i>
-              <i class="urgent fa-solid fa-circle fa-xs d-none"
-                 data-user-subscription-target="icon"
-                 id="red-dot">
-              </i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li data-user-subscription-target="messages">No notification</li>
-              <li><button class="d-none"  data-user-subscription-target="clearButton" data-action="click->user-subscription#clear">Clear</button></li>
-            </ul>
+  <% if user_signed_in? %>
+    <div class="nav-item dropdown">
+      <div data-controller="user-subscription"
+            data-user-subscription-user-id-value="<%= current_user.id %>">
+        <button class="dropdown-toggle border-0 bell-af" type="button" data-bs-toggle="dropdown" aria-expanded="false" style=" background-color:transparent">
+          <i class="text-white bi bi-bell" id="bell"></i>
+          <i class="urgent fa-solid fa-circle fa-xs d-none"
+            data-user-subscription-target="icon"
+            id="red-dot">
+          </i>
+        </button>
+        <%# <div> %>
+          <div class="dropdown-menu dropdown-menu-end">
+            <p data-user-subscription-target="messages" class="d-flex justify-content-center noti-message">No notification</p>
+            <p class="d-flex justify-content-center noti-button"><button class="d-none btn btn-danger"  data-user-subscription-target="clearButton" data-action="click->user-subscription#clear">Clear</button></p>
           </div>
+        <%# </div> %>
+      </div>
+    </div>
 
-
-         </div>
-
-        <div class="nav-item dropdown">
-
-         &nbsp;&nbsp;&nbsp;&nbsp;
-          <%= image_tag "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Home", root_path, class: "dropdown-item" %>
-            <%= link_to "Personal Information", dashboard_show_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-          </div>
-        </div>
-      <% else %>
-        <div class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </div>
-      <% end %>
+    <div class="nav-item dropdown">
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <%= image_tag "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <%= link_to "Home", root_path, class: "dropdown-item" %>
+        <%= link_to "Personal Information", dashboard_show_path, class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+      </div>
+    </div>
+  <% else %>
+    <div class="nav-item">
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    </div>
+  <% end %>
 </div>

@@ -37,9 +37,12 @@
 
   <body class="d-flex flex-column min-vh-100">
     <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <div class="flex-grow-1 pt-5">
-      <%= yield %>
+    <div>
+      <%= render "shared/flashes" %>
+      <div class="flex-grow-1 pt-5">
+        <%= yield %>
+      </div>
+      <%# <%= render "shared/chat" %>
     </div>
 
     <%= render "shared/footer" %>

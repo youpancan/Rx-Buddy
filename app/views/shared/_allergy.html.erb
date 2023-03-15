@@ -1,0 +1,5 @@
+<% allergic_meds.each do |allergic| %>
+  <% if allergic.name == active_med.medication.name %>
+    <p><%= 'You are allergic to this medication' %></p>
+  <% end %>
+<% end %>

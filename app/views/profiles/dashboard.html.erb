@@ -6,7 +6,7 @@
     <h5 class='active'>Active medications</h5>
     <%# </div> %>
 
-    <%= render "shared/medication_card", active_meds: @active_meds%>
+    <%= render "shared/medication_card", active_meds: @active_meds, allergies: @allergies, medications: @medications, allergic_meds: @allergic_meds %>
 
     <% unless current_user.no_order_refills == [] %>
       <%= link_to "Review Order", review_path, class:'btn btn-primary mb-4' %>
@@ -17,5 +17,6 @@
         data-map-marker-value="<%= @marker.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <%= render "shared/chat" %>
   </div>
 </div>
