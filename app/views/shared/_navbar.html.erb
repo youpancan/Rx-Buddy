@@ -25,19 +25,24 @@
     </ul>
   </nav>
 
-  <img src="<%= image_path("rxnav.png") %>" alt="rx buddy" class="rx-buddy"/>
+    <div class="display title-white mb-0">Rx Buddy</div>
+
       <% if user_signed_in? %>
-
-       <%= link_to chatbot_path(current_user.chatbots.first), class: "navbar-brand" do %>
+        <% if current_user.chatbots.empty? %>
+          <%= link_to chatbots_path, data: { turbo_method: :post }, class: "navbar-brand" do %>
             <i class="fa-regular fa-comment chat-icon"></i>
+          <% end %>
+        <% else %>
+          <%= link_to chatbot_path(current_user.chatbots.last), class: "navbar-brand" do %>
+            <i class="fa-regular fa-comment chat-icon"></i>
+          <% end %>
         <% end %>
-
         <div class="nav-item dropdown">
 
             <div data-controller="user-subscription"
                   data-user-subscription-user-id-value="<%= current_user.id %>">
-            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-bell" id="bell"></i>
+            <button class="dropdown-toggle border-0 bell-af" type="button" data-bs-toggle="dropdown" aria-expanded="false" style=" background-color:transparent">
+              <i class="text-white bi bi-bell" id="bell"></i>
               <i class="urgent fa-solid fa-circle fa-xs d-none"
                  data-user-subscription-target="icon"
                  id="red-dot">
