@@ -13,7 +13,7 @@
   transform: scaleX(-1);
 }
 
-.chat-button {
+.chat-div {
   position: sticky;
   bottom: 0;
   padding-bottom: 20px;
@@ -21,6 +21,11 @@
   justify-content: flex-end;
   // margin-top: -50px;
   z-index: 10;
+  text-decoration: none;
+}
+
+.chat-button {
+  text-decoration: none;
 }
 
 .chatbot {

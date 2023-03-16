@@ -1,4 +1,5 @@
 <div class='container mt-5'>
+  <h1>Review your order</h1>
   <div class="accordion" id="accordionExample">
     <% @refills.each_with_index do |refill, index| %>
       <div class="accordion-item mb-3 border">
@@ -45,8 +46,8 @@
     <% end %>
   </div>
   <div class='d-flex justify-content-between'>
-  <%= button_to "Send Order", orders_path, class:'btn btn-success mb-4 rounded'%>
-  <%= button_to "Cancel Order", remove_all_path, data: { turbo_confirm: 'Sure? ⚠️' }, method: :delete, class:'btn btn-danger mb-4 rounded'%>
+  <%= button_to "Send Order", orders_path, class:'btn send my-4 rounded'%>
+  <%= button_to "Cancel Order", remove_all_path, data: { turbo_confirm: 'Sure? ⚠️' }, method: :delete, class:'btn cancel my-4 rounded'%>
   <%# add the delete whole order button %>
   </div>
 </div>
