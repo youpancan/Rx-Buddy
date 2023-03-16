@@ -5,7 +5,7 @@ class ChatbotAnswerJob < ApplicationJob
     chatbot_answer = Message.new(
       chatbot: chatbot,
       from_chatbot: true,
-      content: "You have  2 days until your next refill for your metformin."
+      content: "Unfortunately Sarah we do not."
     )
 
     if chatbot_answer.save
