@@ -1,7 +1,3 @@
-.your-allergies {
-  font-size: 20px;
-}
-
 .ts-wrapper.multi .ts-control [data-value] {
   background-color: #83C5BE;
   background-image: linear-gradient(to bottom, #83C5BE, #83C5BE);
@@ -17,4 +13,8 @@
 
 .create.active {
   font-family: 'Jost', sans-serif;
+}
+
+#info-title {
+  margin-bottom: 30px;
 }
