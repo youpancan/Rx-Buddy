@@ -20,7 +20,7 @@ user_three = User.create(first_name: 'You', last_name: 'Pan', email: 'a@c.a', pa
 
 puts "creating allergies"
 allergy_types = ['Penicillin', 'Sulfa', 'Codeine', 'Lactose', 'Ibuprofen',
-                 'Latex', 'ASA', 'Egg', 'Abacavir', 'Ramipril']
+                 'Latex', 'ASA', 'Egg', 'Abacavir', 'Ramipril, Magnesium Stearate']
 
 allergy_types.each do |type|
   Allergy.create!(allergy_type: type)
@@ -35,9 +35,9 @@ amoxicillin = Medication.create!(name: "Amoxicillin", description: "Antibiotics"
 celexa = Medication.create!(name: "Celexa", description: "Anti-depressant", strength: '20 mg',
                             ingredients: 'Citalopram, Copolyvidone, Crosscarmellose Sodium, Glycerin')
 lexapro = Medication.create!(name: "Lexapro", description: "Anti-Depressant", strength: '20 mg',
-                             ingredients: 'Escitalopram, Microcrystalline Cellulose')
+                             ingredients: 'Escitalopram, Microcrystalline Cellulose, Magnesium Stearate')
 adderall = Medication.create!(name: "Adderall", description: "ADHD", strength: '40mg',
-                              ingredients: 'Dextroamphetamine Saccharate, Amphetamine Aspartate, Lactose')
+                              ingredients: 'Dextroamphetamine Saccharate, Amphetamine Aspartate')
 omeprazole = Medication.create!(name: "Omeprazole", description: "Acid-Reflux", strength: '10mg',
                                 ingredients: 'Omeprazole, Lactose, Cellulose, Disodium Hydrogen Phosphate, Hydroxypropyl
                                 Cellulose, Hypromellose')
