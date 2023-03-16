@@ -2,11 +2,13 @@ namespace :rx do
   desc "update the refills status to received "
   task received: :environment do
     Order.last.refills.last.received!
+    # maybe should receive all refill orders
   end
 
   desc "update the refills status to in process"
   task in_process: :environment do
     Order.last.refills.last.in_process!
+    # maybe add another method to change the other refill status
   end
 
   desc "update the refills status to complete"
@@ -22,10 +24,12 @@ namespace :rx do
         notification.message
       )
     end
+    # maybe add another method to change the other refill status
   end
 
   desc "update the refills status to picked up"
   task picked_up: :environment do
-    Order.last.refills.last.picked_up!
+    Order.last.refills.last.pick_up_and_set_refill_date
   end
+  # maybe add another method to change the other refill status
 end
