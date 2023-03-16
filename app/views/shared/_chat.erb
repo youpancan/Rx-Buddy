@@ -1,15 +1,21 @@
 <% if user_signed_in? %>
   <% if current_user.chatbots.empty? %>
-    <%= link_to chatbots_path, data: { turbo_method: :post }, class: "navbar-brand chat-button" do %>
-      <div class='chat-circle'>
+    <div class="chat-div">
+      <%= link_to chatbots_path, data: { turbo_method: :post }, class: "chat-button" do %>
+      <%# <div class='chat-circle'> %>
         <i class="fa-regular fa-comment chat-icon"></i>
-      </div>
-    <% end %>
+      <%# </div> %>
+      <% end %>
+    </div>
   <% else %>
-    <%= link_to chatbot_path(current_user.chatbots.last), class: "navbar-brand chat-button" do %>
-      <div class='chat-circle'>
-        <i class="fa-regular fa-comment chat-icon"></i>
-      </div>
-    <% end %>
+    <div class="chat-div">
+      <%= link_to chatbot_path(current_user.chatbots.last), class: 'chat-button' do %>
+        <%# <div class='chat-circle'> %>
+          <i class="fa-regular fa-comment chat-icon"></i>
+        <%# </div> %>
+      <% end %>
+    </div>
   <% end %>
 <% end %>
+
+<%# text-decoration: none; %>
