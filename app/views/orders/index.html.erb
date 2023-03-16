@@ -7,7 +7,7 @@
         <%= link_to order_path(order), class:'text-decoration-none text-dark' do  %>
           <div class='d-flex justify-space-between'>
             <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
-            <div class='order-cards'> Ordered on <%= order.order_date %></div>
+            <div class='order-cards'> Ordered on <%= order.order_date.strftime("%B %d %Y") %></div>
             <i class="fa-solid fa-chevron-right ms-auto"></i>
           </div>
         <% end %>

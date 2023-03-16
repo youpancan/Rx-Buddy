@@ -127,13 +127,13 @@ sarah_yaz = UserMedication.create!(medication: yaz, user: sarah, number_refills:
                                    prescriber: 'Dr. Smith', refillable: false)
 
 # creating orders
-sarah_order_done = Order.create!(user: sarah, order_date: Date.new(2023, 2, 10))
-
-sarah_order_one = Order.create!(user: sarah, order_date: Date.new(2023, 1, 7))
+sarah_order_three = Order.create!(user: sarah, order_date: Date.new(2022, 11, 9))
 
 sarah_order_two = Order.create!(user: sarah, order_date: Date.new(2022, 12, 4))
 
-sarah_order_three = Order.create!(user: sarah, order_date: Date.new(2022, 11, 9))
+sarah_order_one = Order.create!(user: sarah, order_date: Date.new(2023, 1, 7))
+
+sarah_order_done = Order.create!(user: sarah, order_date: Date.new(2023, 2, 10))
 
 sarah_order_four = Order.create!(user: sarah, order_date: Date.new(2023, 3, 6)) # the order that will show for the steps
 
