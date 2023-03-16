@@ -39,7 +39,8 @@
 
   <section class="pt-5 px-5 py-3 mt-2 mb-4">
     <div class="text-center">
-        <p class="text-muted mb-0"> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essenti</p>
+        <p class="text-muted mb-0"> With Rx Buddy, you can be confident that you are managing your medications effectively and taking control of your health.
+        Try it today and experience the peace of mind that comes with a well-organized medication routine.</p>
     </div>
     <div class="mt-5 d-flex justify-content-center">
       <%# <div>
@@ -54,41 +55,41 @@
   <%# ____________________________________________________________________________________________ %>
   <!-- App features section-->
   <section id="features" class="pt-3">
-      <div class="container py-5 px-5">
+      <div class="container py-2 px-5">
           <div class="row gx-5 align-items-center">
               <div class="col-lg-8 order-lg-1 mb-1 mb-lg-0">
                   <div class="container-fluid px-5">
                       <div class="row gx-5">
-                          <div class="col-md-6 mb-5 feature">
+                          <div class="col-md-6 mb-4 feature">
                               <!-- Feature item-->
                               <div class="text-center">
-                                  <div class="icon-feature mb-3 text-gradient">
-                                    <i class="bi-phone"></i>
+                                  <div class="icon-feature mb-2 text-gradient">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
                                   </div>
                                   <h3 class="font-alt">Awesome Design</h3>
-                                  <p class="text-muted mb-0">Very easy to use and has an intuitive design!</p>
+                                  <p class="text-muted mb-2">Very easy to use and has an intuitive design!</p>
                               </div>
                           </div>
-                          <div class="col-md-6 mb-5 feature">
+                          <div class="col-md-6 mb-4 feature">
                               <!-- Feature item-->
                               <div class="text-center">
-                                  <div class="icon-feature mb-3 text-gradient">
-                                    <i class="bi-camera"></i>
+                                  <div class="icon-feature mb-2 text-gradient">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
                                   </div>
                                   <h3 class="font-alt">Flexible Use</h3>
-                                  <p class="text-muted mb-0">Know the status of your medication anywhere & anytime!</p>
+                                  <p class="text-muted mb-2">Know the status of your medication anywhere & anytime!</p>
                               </div>
                           </div>
                       </div>
                       <div class="row">
-                          <div class="col-md-6 mb-5 mb-md-0 feature">
+                          <div class="col-md-6 mb-4 feature">
                               <!-- Feature item-->
                               <div class="text-center">
-                                  <div class="icon-feature mb-3 text-gradient">
-                                    <i class="bi-gift"></i>
+                                  <div class="icon-feature mb-2 text-gradient">
+                                    <i class="fa-regular fa-heart"></i>
                                   </div>
                                   <h3 class="font-alt">Free to Use</h3>
-                                  <p class="text-muted mb-0">Anyone can use this platform free of charge!</p>
+                                  <p class="text-muted mb-2">Anyone can use this platform free of charge!</p>
                               </div>
 
                           </div>
@@ -103,6 +104,24 @@
       </div>
     </div>
   </section>
-</div>
+
+
+
+
+
+
+
+
 
 <%# _______________________________________________ %>
+
+  <div class="peoplez mb-3 py-3">
+  <h3 id="homepage-h3">Meet Our Team</h3>
+    <%= render "shared/person", image: "adham.png", name: "Adham Al Koukou", title: "Product Manager", class: "mt-2" %>
+    <%= render "shared/person", image: "ayat.png", name: "Ayat Amin", title: "Senior Developer" %>
+    <%= render "shared/person", image: "Maggie.png", name: "Maggie Hum", title: "Senior Developer" %>
+    <%= render "shared/person", image: "yannick.png", name: "Yannick Bruderlein", title: "Senior UX" %>
+    <%= render "shared/person", image: "adham.png", name: "You Pan", title: "Senior UX" %>
+  </div>
+
+</div>
