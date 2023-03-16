@@ -20,13 +20,3 @@
 .receiver-style {
   background-color: #e29478d5;
 }
-
-#animation {
-  animation: color-change 4s infinite;
-}
-
-@keyframes color-change {
-  20% { color: blue; }
-  50% { color: red; }
-  30% { color: green;}
-}
