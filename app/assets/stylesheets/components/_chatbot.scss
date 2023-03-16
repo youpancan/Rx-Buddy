@@ -1,16 +1,26 @@
 .chat-icon {
   color: #EDF6F9;
   padding: 10px;
-  background-color: #83c5c0ac;
+  background-color: #83c5c0c9;
   border-radius: 50%;
   display: flex;
-  position: fixed;
-  font-size: 30px;
-  bottom: 20px;
-  right: 20px;
+  // position: fixed;
+  font-size: 34px;
+  // bottom: 20px;
+  // right: 20px;
   z-index: 3000;
   opacity: 1;
   transform: scaleX(-1);
+}
+
+.chat-button {
+  position: sticky;
+  bottom: 0;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  // margin-top: -50px;
+  z-index: 10;
 }
 
 .chatbot {
