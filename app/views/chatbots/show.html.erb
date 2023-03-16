@@ -9,10 +9,14 @@
 
 <div class="d-flex flex-column align-items-start mt-4">
   <h6 class="typewriter">Hi I'm <span id = "animation" > JOI</span>, your virtual pharmaceutical assistant.
-  <h6 class="typewriter animated">How may I be of assistance <%= @user.first_name %>? </h6>
 </div>
 <hr id = "line-seperator">
   <div class="messages" data-chatbot-subscription-target="messages">
+    <div class="message-row d-flex justify-content-start">
+      <div class="receiver-style">
+        <%= render "messages/auto_message" %>
+      </div>
+    </div>
     <% @chatbot.messages.each do |message| %>
       <div class="message-row d-flex <%= message.from_chatbot ? 'justify-content-start' : 'justify-content-end' %>">
         <div class="<%= message.from_chatbot ? 'receiver-style' : 'sender-style' %>">
