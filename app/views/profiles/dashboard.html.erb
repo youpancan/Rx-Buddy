@@ -11,7 +11,9 @@
     <% unless current_user.no_order_refills == [] %>
       <%= link_to "Review Order", review_path, class:'btn btn-primary mb-4' %>
     <% end %>
-
+    <div>
+    <h1 class= "h6"> Pharmacy Location</h1>
+    </div>
     <div class= "mapid mb-4" style="width: 100%; height: 600px; border:solid; border-color:#E29578; margin-top: 3s;"
         data-controller="map"
         data-map-marker-value="<%= @marker.to_json %>"
