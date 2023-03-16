@@ -3,7 +3,7 @@
     <div class="accordion-item mb-3 border">
       <h2 class="accordion-header" id="heading<%= index %>">
         <% if active_med.refills.last.order_id.nil? %>
-          <button class="accordion-button collapsed border border-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-controls="collapse<%= index %>">
+          <button class="accordion-button collapsed border-select" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-controls="collapse<%= index %>">
             <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
             <%= active_med.medication.name %>
           </button>
