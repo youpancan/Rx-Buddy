@@ -80,10 +80,6 @@ h1 {
 }
 
 .animated {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  // border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  // letter-spacing: .15em; /* Adjust as needed */
   animation: typing 3.5s steps(45, end)
 }
 
@@ -109,6 +105,23 @@ h1 {
   30% { color: green;}
 }
 
-#line-seperator {
+.type {
+  color:#0000;
+  background:
+    linear-gradient(-90deg,white 5px,#0000 0) 10px 0,
+    linear-gradient(white 0 0) 0 0;
+  background-size:calc(var(--n)*1ch) 200%;
+  -webkit-background-clip:padding-box,text;
+  background-clip:padding-box,text;
+  background-repeat:no-repeat;
+  animation:
+   b .3s infinite steps(1),
+   t calc(var(--n)*.05s) steps(var(--n)) forwards;
+}
 
+@keyframes t{
+  from {background-size:0 200%}
+}
+@keyframes b{
+  50% {background-position:0 -100%,0 0}
 }
