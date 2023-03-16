@@ -30,6 +30,7 @@ body {
 
 	// transition: 4s;
 
+  a {
 	&:before,
 	&:after {
 		content: '';
@@ -62,6 +63,8 @@ body {
 		transform: translate3d(0, 5em, 0) rotate(390deg);
     animation: wave2 8s 0s ease infinite;
 	}
+
+  }
 
 	// &:hover,
 	// &:focus {
