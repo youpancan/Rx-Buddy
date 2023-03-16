@@ -20,7 +20,7 @@ user_three = User.create(first_name: 'You', last_name: 'Pan', email: 'a@c.a', pa
 
 puts "creating allergies"
 allergy_types = ['Penicillin', 'Sulfa', 'Codeine', 'Lactose', 'Ibuprofen',
-                 'Latex', 'ASA', 'Egg', 'Abacavir', 'Ramipril, Magnesium-Stearate']
+                 'Latex', 'ASA', 'Egg', 'Abacavir', 'Ramipril', 'Magnesium-Stearate']
 
 allergy_types.each do |type|
   Allergy.create!(allergy_type: type)
