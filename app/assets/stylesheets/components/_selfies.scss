@@ -42,7 +42,7 @@
   top: -200px;
 }
 .circlez {
-  background-color: #fee7d3;
+  background-color: #FFDDD2;
   border-radius: 50%;
   cursor: pointer;
   height: 380px;
@@ -60,7 +60,7 @@
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .containerz:hover .img {
-  transform: translateY(0) scale(1.2);
+  transform: translateY(20px) scale(1.2);
 }
 .img1 {
   left: 22px;
@@ -78,7 +78,7 @@
   width: 466px;
 }
 .divider {
-  background-color: #ca6060;
+  background-color: #E29578;
   height: 1px;
   width: 160px;
 }
@@ -91,8 +91,21 @@
 }
 .title {
   color: #6e6e6e;
-  font-family: arial;
+  font-family: 'Jost', sans-serif;
   font-size: 14px;
   font-style: italic;
   margin-top: 4px;
+}
+.peoplez {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+#homepage-h3 {
+  color: #404245;
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 16px;
+  text-align: center;
 }
