@@ -50,11 +50,7 @@
 
     <div class="nav-item dropdown">
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <%= image_tag "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <%= link_to "Home", root_path, class: "dropdown-item" %>
-        <%= link_to "Personal Information", dashboard_show_path, class: "dropdown-item" %>
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+      <%=link_to image_tag("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80", class: "avatar"), dashboard_show_path%>
       </div>
     </div>
   <% else %>
