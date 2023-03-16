@@ -19,8 +19,8 @@ user_three = User.create(first_name: 'You', last_name: 'Pan', email: 'a@c.a', pa
                          address: '44 st', pharmacy_location: '4084 Blvd Saint-Laurent, Montreal')
 
 puts "creating allergies"
-allergy_types = ['penicillin', 'sulfa', 'codeine', 'lactose', 'ibuprofen',
-                 'latex', 'ASA', 'egg', 'abacavir', 'ramipril']
+allergy_types = ['Penicillin', 'Sulfa', 'Codeine', 'Lactose', 'Ibuprofen',
+                 'Latex', 'ASA', 'Egg', 'Abacavir', 'Ramipril']
 
 allergy_types.each do |type|
   Allergy.create!(allergy_type: type)
@@ -29,28 +29,28 @@ end
 # creating medications
 puts "creating medications"
 alesse = Medication.create!(name: "Alesse", description: "Birth-Control", strength: '28',
-                            ingredients: 'levonorgestrel, ethinylestradiol, microcrystalline cellulose')
+                            ingredients: 'Levonorgestrel, Ethinylestradiol, Microcrystalline Cellulose')
 amoxicillin = Medication.create!(name: "Amoxicillin", description: "Antibiotics", strength: '500mg',
                                  ingredients: 'Amoxicillin, Gelatin, Sodium Lauryl Sulfate, Titanium Dioxide')
 celexa = Medication.create!(name: "Celexa", description: "Anti-depressant", strength: '20 mg',
-                            ingredients: 'citalopram, copolyvidone, crosscarmellose sodium, glycerin')
+                            ingredients: 'Citalopram, Copolyvidone, Crosscarmellose Sodium, Glycerin')
 lexapro = Medication.create!(name: "Lexapro", description: "Anti-Depressant", strength: '20 mg',
-                             ingredients: 'escitalopram, microcrystalline cellulose')
+                             ingredients: 'Escitalopram, Microcrystalline Cellulose')
 adderall = Medication.create!(name: "Adderall", description: "ADHD", strength: '40mg',
-                              ingredients: 'dextroamphetamine saccharate, amphetamine aspartate, lactose')
+                              ingredients: 'Dextroamphetamine Saccharate, Amphetamine Aspartate, Lactose')
 omeprazole = Medication.create!(name: "Omeprazole", description: "Acid-Reflux", strength: '10mg',
-                                ingredients: 'omeprazole, lactose, cellulose, disodium hydrogen phosphate, hydroxypropyl
-                                cellulose, hypromellose')
+                                ingredients: 'Omeprazole, Lactose, Cellulose, Disodium Hydrogen Phosphate, Hydroxypropyl
+                                Cellulose, Hypromellose')
 metformin = Medication.create!(name: "Metformin", description: "Diabetes", strength: '500mg',
-                               ingredients: 'metformin, candellila wax, cellulose acetate, hypromellose, magnesium')
+                               ingredients: 'Metformin, Candellila Wax, Wellulose Acetate, Hypromellose, Magnesium')
 cetirizine = Medication.create!(name: "Cetirizine", description: "Allergies", strength: '20mg',
-                                ingredients: 'ceterizine, lactose, microcrystalline cellulose, maize starch')
+                                ingredients: 'Ceterizine, Lactose, Microcrystalline Cellulose, Maize Starch')
 epipen = Medication.create!(name: "EpiPen", description: "Allergies", strength: '0.3mg',
-                            ingredients: 'Epinephrine,  sodium chloride, hydrochloric acid, water')
+                            ingredients: 'Epinephrine,  Sodium Chloride, Hydrochloric Acid, Water')
 wellbutrin = Medication.create!(name: "Wellbutrin", description: "Anti-depressant", strength: '150mg',
-                                ingredients: 'bupropion hydrochloride, glyceryl behenate, methacrylic acid copolymer')
+                                ingredients: 'Bupropion Hydrochloride, Glyceryl Behenate, Methacrylic Acid Copolymer')
 yaz = Medication.create!(name: "Yaz", description: "Birth-Control", strength: '28',
-                         ingredients: 'ethinylestradiol, lactose monohydrate, magnesium stearate')
+                         ingredients: 'Ethinylestradiol, Lactose Monohydrate, Magnesium Stearate')
 
 puts "creating user medications"
 user_alesse = UserMedication.create!(medication: alesse, user: user_two, number_refills: 3,

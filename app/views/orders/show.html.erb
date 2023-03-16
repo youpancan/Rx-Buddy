@@ -1,4 +1,4 @@
-<div class='container mt-5 pt-5'>
+<div class='container mt-2 pt-5'>
   <h1 class='m-0 pb-2'>Your Order Status</h1>
   <h2 class='order-date mb-5'><%= @order.order_date %></h2>
 
@@ -7,7 +7,7 @@
       <div class="p-2 bg-light border rounded p-3">
           <div class="d-flex flex-row">
             <img src="<%= image_path("pill.png") %>" alt="pill" class="pill-icon"/>
-            <div class='flex-grow-1 align-items-center'><%= refill.user_medication.medication.name %></div>
+            <div class='flex-grow-1 align-items-center order-cards'><%= refill.user_medication.medication.name %></div>
             <% if refill.status == 'received' %>
               <i class="status fa-solid fa-file-circle-plus"></i>
             <% elsif refill.status == 'in_process' %>
@@ -15,14 +15,13 @@
             <% elsif refill.status == 'complete' %>
               <i class="status fa-regular fa-circle-check"></i>
             <% else %>
-            <i class="status bi bi-dash-circle"></i>
+            <i class="dash bi bi-dash-circle"></i>
             <% end %>
           </div>
       </div>
     <% end %>
   </div>
-  <div class='d-flex justify-content-center mt-3 mb-3'>
+  <div class='d-flex justify-content-center mt-5 mb-3'>
     <%= link_to "Back", orders_path, class: 'btn btn-primary' %>
   </div>
-     <%= render "shared/chat" %>
 </div>
