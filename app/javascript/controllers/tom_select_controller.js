@@ -13,6 +13,9 @@ export default class extends Controller {
               title:'Remove this item',
             }
           },
+          onItemAdd:function(){
+            this.setTextboxValue('');
+          },
           persist: false,
           create: true,
           tags: true
