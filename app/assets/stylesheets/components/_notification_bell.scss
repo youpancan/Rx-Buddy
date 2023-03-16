@@ -22,16 +22,21 @@
   border: solid .5px #EDF6F9;
   // border-radius: 25px 10px;
   border-radius: 10px;
-  min-height: 50px;
+  // min-height: 50px;
+  width:200px;
   background-color: #ffddd2db;
-  padding: 10px;
+  // padding: 10px;
+  height:auto;
 }
 
 .noti-message {
-  display: flex;
-  margin: 15px;
+  // display: flex;
+  // margin: 2px;
   text-align: center;
-  align-items: center;
+  // align-items: center;
+  width: auto;
+  height: auto;
+  padding: 3px;
 }
 
 .noti-button {
