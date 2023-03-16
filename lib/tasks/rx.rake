@@ -40,7 +40,7 @@ namespace :rx do
   end
 
   desc "update the refills status two to complete"
-  task complete_two: :environment do
+  task complete_urgent: :environment do
     refill = Order.last.refills.where(urgency: 'urgent').first
     refill.complete!
     user = refill.user_medication.user
