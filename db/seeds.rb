@@ -111,7 +111,7 @@ sarah_omeprazole = UserMedication.create!(medication: omeprazole, user: sarah, n
                                           refill_due_date: Date.new(2023, 3, 11),
                                           prescriber: 'Dr. Patel', refillable: true)
 sarah_metformin = UserMedication.create!(medication: metformin, user: sarah, number_refills: 3,
-                                         refill_due_date: Date.new(2023, 3, 17),
+                                         refill_due_date: Date.new(2023, 4, 7),
                                          prescriber: 'Dr. Hani', refillable: true)
 sarah_cetirizine = UserMedication.create!(medication: cetirizine, user: sarah, number_refills: 0,
                                           refill_due_date: Date.new(2023, 3, 17),
