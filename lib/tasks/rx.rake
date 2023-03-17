@@ -19,7 +19,7 @@ namespace :rx do
 
   desc "update the refills status urgent to in process"
   task in_process_urgent: :environment do
-    Order.last.refills.where(urgency: 'urgent').first.in_process!
+    Order.last.refills.where(urgency: 'urgent').first.in_process_and_set_number_refills
     # maybe add another method to change the other refill status
   end
 

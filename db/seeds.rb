@@ -104,10 +104,10 @@ sarah = User.create!(first_name: 'Sarah', last_name: 'Johnson', email: 'sarah.Jo
 sarah_lexapro = UserMedication.create!(medication: lexapro, user: sarah, number_refills: 4,
                                        refill_due_date: Date.new(2023, 4, 9),
                                        prescriber: 'Dr. Smith', refillable: true)
-sarah_adderall = UserMedication.create!(medication: adderall, user: sarah, number_refills: 1,
+sarah_adderall = UserMedication.create!(medication: adderall, user: sarah, number_refills: 3,
                                         refill_due_date: Date.new(2023, 3, 10),
                                         prescriber: 'Dr. Patel', refillable: true)
-sarah_omeprazole = UserMedication.create!(medication: omeprazole, user: sarah, number_refills: 2,
+sarah_omeprazole = UserMedication.create!(medication: omeprazole, user: sarah, number_refills: 5,
                                           refill_due_date: Date.new(2023, 3, 11),
                                           prescriber: 'Dr. Patel', refillable: true)
 sarah_metformin = UserMedication.create!(medication: metformin, user: sarah, number_refills: 3,
