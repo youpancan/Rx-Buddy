@@ -12,4 +12,10 @@ class Refill < ApplicationRecord
     user_medication.number_refills -= 1
     user_medication.save
   end
+
+  def in_process_and_set_number_refills
+    in_process!
+    user_medication.number_refills -= 1
+    user_medication.save
+  end
 end
