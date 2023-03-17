@@ -34,7 +34,7 @@
                     <div class='align'><%= button_to "I can wait a week", user_medication_refill_path(refill.user_medication, refill, urgency: 'not_urgent'), method: :patch, class: "dropdown-item" %><i class=" not-urgent fa-solid fa-circle"></i></div>
                   </div>
                   <div class="dropdown d-flex justify-content-end">
-                      <%= link_to user_medication_refill_path(refill.user_medication, refill), data: { turbo_method: :delete, turbo_confirm: 'Sure? ⚠️' }, class: 'mt-2' do %>
+                      <%= link_to user_medication_refill_path(refill.user_medication, refill), data: { turbo_method: :delete }, class: 'mt-2' do %>
                         <i class="trash fa-solid fa-trash-can"></i>
                       <% end %>
                   </div>
