@@ -51,6 +51,7 @@ h1, .h1 {
 }
 #homepage-h1 {
   border-bottom: 0px solid transparent;
+  margin: auto;
 }
 h1 span {
   color: #fff;
@@ -70,6 +71,8 @@ p.text {
   margin-top: 0;
   margin-bottom: 1rem;
   color: white;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -106,19 +109,19 @@ table {
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
 }
 .app-badge {
-  width: 80%;
+  width: 70%;
 }
 
-.container,
-.container-fluid,
-.container-xxl,
-.container-xl,
-.container-lg,
-.container-md,
+// .container,
+// .container-fluid,
+// .container-xxl,
+// .container-xl,
+// .container-lg,
+// .container-md,
 .container-sm {
   width: 100%;
   padding-right: var(--bs-gutter-x, 0.75rem);
@@ -851,4 +854,12 @@ table {
 }
 #features {
   background-color: #F5F7F4;
+
+}
+
+.alignmentz {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 }
