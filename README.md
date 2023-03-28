@@ -17,8 +17,8 @@ This is an app designed for patients to order prescription medications online, t
 To install and use the app, follow these steps:
 
 ```bash
-  npm install my-project
-  cd my-project
+  npm install Rx-Buddy
+  cd Rx-Buddy
 ```
     
 ## Tech Stack
