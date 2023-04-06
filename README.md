@@ -4,9 +4,13 @@
 This is an app designed for patients to order prescription medications online, track the progress of their orders, and receive notifications from the pharmacy when the orders are ready for pick-up.
 
 
+![image](https://user-images.githubusercontent.com/98929404/230383905-05917382-261f-45e1-b90f-d6c01d564418.png)
+
+
 ## Features
 
 - Prescription Ordering: Patients can order prescription medications online. They can also provide any additional instructions or information to the pharmacy through the app.
+
 - Order Tracking: Patients can track the progress of their orders through the app. They can see the status of their order, including when it has been received by the pharmacy, when it is being processed, and when it is ready for pick-up.
 - Notifications: Patients receive notifications from the pharmacy when their orders are ready for pick-up. This eliminates the need for patients to call the pharmacy or wait in line to check if their order is ready.
 - Secure: The app is designed to be secure, with patient information protected by encryption and secure login features.
