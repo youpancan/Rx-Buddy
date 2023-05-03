@@ -137,8 +137,8 @@ table {
 }
 
 .app-badge {
-  width: 50%;
-  margin-top: 50px;
+  width: 65%;
+  margin-top: 45px;
 }
 
 // .container,
@@ -158,6 +158,8 @@ table {
 .container-fluid {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media (min-width: 576px) {
